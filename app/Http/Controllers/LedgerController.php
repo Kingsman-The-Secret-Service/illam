@@ -24,7 +24,8 @@ class LedgerController extends Controller
     public function index(Request $request){
 
     	$user = $request->user();
-        $user->ledger;
+        // $user->family->ledger;
+        // $user->ledger;
 
     	return response()->json(['status' => 'success', 'ledger' => $user], 200);
     }

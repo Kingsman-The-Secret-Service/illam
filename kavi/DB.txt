@@ -2,3 +2,4 @@ drop table migrations;
 drop table users;
 drop table type;
 drop table family;
+drop table ledger;

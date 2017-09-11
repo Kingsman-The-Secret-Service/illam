@@ -11,8 +11,8 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('type')->insert(
-        	[[
+        DB::table('type')->insert([
+            [
         		'name' => 'Income',
             	'hexcolor' => '#18bc9c',
             	'icon' => ''
@@ -27,7 +27,6 @@ class TypeTableSeeder extends Seeder
                 'hexcolor' => '#444444',
                 'icon' => ''
             ]
-        	]
-    	);
+    	]);
     }
 }

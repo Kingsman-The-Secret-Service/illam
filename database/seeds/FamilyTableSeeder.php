@@ -11,6 +11,11 @@ class FamilyTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('family')->insert(
+        	[[
+        		'name' => 'KalKi',
+            	'hexcolor' => '#18bc9c'
+        	]
+        ]);
     }
 }

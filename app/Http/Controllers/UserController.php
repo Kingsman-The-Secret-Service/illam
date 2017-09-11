@@ -43,7 +43,7 @@ class UserController extends Controller
         try {
             $user   = new User;
             $user->email  = $request->input('email');
-            $user->password  = Hash::make( $request->input('password') );
+            $user->password  = Hash::make($request->input('password'));
             $user->name  = $request->input('name');
             $user->phone  = $request->input('phone');
             $user->save();
