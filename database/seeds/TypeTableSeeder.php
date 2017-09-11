@@ -21,7 +21,12 @@ class TypeTableSeeder extends Seeder
         		'name' => 'Expense',
             	'hexcolor' => '#e74c3c',
             	'icon' => ''
-        	]
+        	],
+            [
+                'name' => 'Debt',
+                'hexcolor' => '#444444',
+                'icon' => ''
+            ]
         	]
     	);
     }

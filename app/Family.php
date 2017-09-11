@@ -16,4 +16,9 @@ class Family extends Model{
 
 		return $this->hasMany('App\User');
 	}
+
+	public function ledger(){
+
+		return $this->hasMany('App\Ledger');
+	}
 }

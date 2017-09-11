@@ -24,4 +24,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
         return $this->belongsTo('App\Family');
     }
+
+    public function ledger(){
+
+        return $this->hasMany('App\Ledger');
+    }
 }
