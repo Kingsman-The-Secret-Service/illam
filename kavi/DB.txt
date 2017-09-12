@@ -3,3 +3,6 @@ drop table users;
 drop table type;
 drop table family;
 drop table ledger;
+drop table category;
+drop table people;
+

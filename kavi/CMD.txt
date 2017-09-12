@@ -1,1 +1,5 @@
 1. composer global require "laravel/lumen-installer"
+
+php artisan migrate
+php artisan db:seed
+composer dump-autoload

@@ -31,9 +31,21 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('family', 'FamilyController@store');
     $router->put('family/{id}/', 'FamilyController@update');
 
+    // People
+    $router->get('people', 'PeopleController@index');
+    $router->post('people', 'PeopleController@store');
+    $router->put('people/{id}/', 'PeopleController@update');
+    $router->delete('people/{id}/', 'PeopleController@destory');
+
+    // Category
+    $router->get('category', 'CategoryController@index');
+    $router->post('category', 'CategoryController@store');
+    $router->put('category/{id}/', 'CategoryController@update');
+    $router->delete('category/{id}/', 'CategoryController@destory');
+
     // Ledger
     $router->get('ledger', 'LedgerController@index');
     $router->post('ledger', 'LedgerController@store');
     $router->put('ledger/{id}/', 'LedgerController@update');
-    $router->delete('ledger', 'LedgerController@destory');
+    $router->delete('ledger/{id}/', 'LedgerController@destory');
 });

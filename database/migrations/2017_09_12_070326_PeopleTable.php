@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class LedgerTable extends Migration
+class PeopleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class LedgerTable extends Migration
      */
     public function up()
     {
-        Schema::create('ledger', function (Blueprint $table) {
+        Schema::create('people', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('family_id');
             $table->integer('user_id');
-            $table->integer('type_id');
-            $table->integer('category_id');
-            $table->integer('owe_me_id')->nullable();
-            $table->integer('owe_you_id')->nullable();
-            $table->dateTime('date');
-            $table->decimal('value',9, 2);
-            $table->longText('description')->nullable();
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('hexcolor')->nullable();
+            $table->unique(['family_id', 'name']);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -37,8 +34,6 @@ class LedgerTable extends Migration
      */
     public function down()
     {
-        Schema::table('ledger', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

@@ -23,7 +23,13 @@ class TypeTableSeeder extends Seeder
             	'icon' => ''
         	],
             [
-                'name' => 'Debt',
+                'name' => 'Owe me',
+                'hexcolor' => '#444444',
+                'icon' => ''
+            ]
+            ,
+            [
+                'name' => 'Owe you',
                 'hexcolor' => '#444444',
                 'icon' => ''
             ]

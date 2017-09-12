@@ -1,0 +1,20 @@
+MIGRATION
+SEEDER
+MODEL
+	FILLABLE
+	HIDDEN
+	SOFTEDELETE
+	RELATIONSHIP
+ROUTE
+CONTROLLER
+	INDEX
+	SHOW 
+	STORE
+	UPDATE
+	DESTORY
+
+-------------------------------------------------------
+
+Ledger -> store, update, destory
+Category -> CRUD
+People -> CRUD
