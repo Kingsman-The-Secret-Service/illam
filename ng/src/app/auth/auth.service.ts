@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers }    from '@angular/http';
 import { Router, CanActivate, CanActivateChild,
 		ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
-
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map'
+import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
@@ -45,9 +43,10 @@ export class AuthService implements CanActivate, CanActivateChild {
 	getToken (formData:object){
 
 		return this.http.post(this.url, formData)
-				.toPromise()
-				.then(response => response.json())
-				.catch(error => error.json());
+				.map(response => response.json())
+				.catch(error => {
+					return Observable.throw(error.json());
+				});
 	}
 
 }

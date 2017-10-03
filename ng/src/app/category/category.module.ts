@@ -1,5 +1,7 @@
 import { NgModule }       from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
 
 import { AuthService } from '../auth/auth.service';
 import { ChildComponent } from '../app/app.component';
@@ -22,6 +24,8 @@ const CategoryRoutes: Routes = [
 
 @NgModule({
     imports: [
+        BrowserModule,
+        FormsModule,
         RouterModule.forChild(CategoryRoutes)
     ],
     declarations: [
