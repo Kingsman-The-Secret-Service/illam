@@ -18,3 +18,15 @@ CONTROLLER
 Ledger -> store, update, destory
 Category -> CRUD
 People -> CRUD
+
+-------------------------- NG -------------------------
+
+1. Model
+2. Service
+3. Component
+4. Module
+5. Html
+6. Form
+	1. Component
+	2. Html
+

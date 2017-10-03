@@ -1,30 +1,36 @@
 import { NgModule }       from '@angular/core';
-import { CommonModule }   from '@angular/common';
-import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CategoryService } from './category.service';
-import { CategoryComponent } from './category.component';
-import { CategoryFormComponent } from './category-form/category-form.component';
+import { AuthService } from '../auth/auth.service';
+import { ChildComponent } from '../app/app.component';
 
-const categoryRoutes: Routes = [
-  { path: 'category',  component: CategoryComponent },
-  { path: 'category/create',  component: CategoryFormComponent }
+import { CategoryService } from './category.service';
+import { CategoryListComponent, CategoryFormComponent } from './category.component';
+
+const CategoryRoutes: Routes = [
+    {
+        path:'category',
+        component:ChildComponent,
+        canActivate: [AuthService],
+        canActivateChild: [AuthService],
+        children:[
+            {path:'', component:CategoryListComponent },
+            {path:'create', component:CategoryFormComponent }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(categoryRoutes)
-  ],
-  declarations: [
-    CategoryComponent,
-    CategoryFormComponent
-  ],
-  providers: [ 
-  	CategoryService 
-  ]
+    imports: [
+        RouterModule.forChild(CategoryRoutes)
+    ],
+    declarations: [
+        CategoryListComponent,
+        CategoryFormComponent,
+    ],
+    providers: [ 
+    	CategoryService 
+    ]
 })
 
 export class CategoryModule {}
