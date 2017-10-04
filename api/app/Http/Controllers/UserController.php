@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $request->user()->family;
 
-        return response()->json(['data' => $request->user()], 200);
+        return response()->json(['user' => $request->user()], 200);
     }
 
     public function store(Request $request){ 
@@ -50,11 +50,11 @@ class UserController extends Controller
         }
         catch (Exception $e){
 
-            return response()->json(['message' => $e], 401);
+            return response()->json(['error' => $e], 401);
         }
 
         $apiToken = $this->generateToken($user);
-        return response()->json(['message' => 'User has been created successfully','data' => $user], 200);
+        return response()->json(['message' => 'User has been created successfully','user' => $user], 200);
 
     }
 
@@ -72,10 +72,10 @@ class UserController extends Controller
         $user = User::find($id);
         if($user->fill($request->all())->save()){
 
-            return response()->json(['message' => 'User has been updated successfully', 'data' => $user], 200);
+            return response()->json(['message' => 'User has been updated successfully', 'user' => $user], 200);
         }
 
-        return response()->json(['message' => 'User has not updated successfully'], 401);
+        return response()->json(['error' => 'User has not updated successfully'], 401);
     }
 
     public function authenticate(Request $request)
@@ -83,7 +83,7 @@ class UserController extends Controller
  
         $this->validate($request, [
            'email' => 'required',
-           'password' => 'required'
+           'password' => 'required|min:6'
         ]);
  
         $user = User::where('email', $request->input('email'))->first();
@@ -93,15 +93,15 @@ class UserController extends Controller
      
                 $apiToken = $this->generateToken($user);
      
-                return response()->json(['data' => $user], 200);
+                return response()->json(['user' => $user], 200);
      
             }else{
      
-              return response()->json(['message' => 'Invalid credentials'], 401);
+              return response()->json(['error' => 'Invalid credentials'], 401);
             }
         }else{
 
-            return response()->json(['message' => 'User doesn\'t exists'], 401);
+            return response()->json(['error' => 'User doesn\'t exists'], 401);
         }
 
  

@@ -1,15 +1,16 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }    from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
+// Service
 import { AuthService } from './auth.service';
+
+// Component 
 import { LoginFormComponent, LogoutComponent } from './auth.component';
 
-const AuthRoutes: Routes = [
-    { path:'login', component:LoginFormComponent },
-    { path:'logout', component:LogoutComponent}
-];
+// Route
+import { AuthRoutes } from './auth.route';
 
 @NgModule({
     imports: [

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute }   from '@angular/router';
 
 import { Category } from './category';
 import { CategoryService } from './category.service';
@@ -16,22 +15,12 @@ export class CategoryListComponent implements OnInit {
     title = 'Category';
     categories: Category[];
       
-    constructor(private categoryService: CategoryService, private route: ActivatedRoute) { 
-
-    // this.route.params.subscribe(params => {
-    //    console.log(params);
-    //  });
-    }
-
-    getCategories(): void {
-        this.categoryService
-        .getCategories()
-        .then(categories => this.categories = categories);
-    }
+    constructor(private categoryService: CategoryService) { }
 
     ngOnInit(): void {
 
-        this.getCategories();
+       this.categoryService.get()
+        .subscribe(categories => this.categories = categories['category']);
     }
 
 }
@@ -47,9 +36,8 @@ export class CategoryFormComponent implements OnInit {
 
     constructor(private categoryService: CategoryService) { 
 
-        categoryService
-        .getCategories()
-        .then(categories => this.categories = categories);
+        categoryService.get()
+        .subscribe(categories => this.categories = categories['category']);
     }
 
 
@@ -57,9 +45,6 @@ export class CategoryFormComponent implements OnInit {
     }
 
     onSubmit() {
-  //       if (this.category.valid) {
-  //   console.log("Form Submitted!");
-  // }
     }
 
 }

@@ -23,7 +23,7 @@ class CategoryController extends Controller
         $family = $user->family;
         $category = $family->category;
 
-    	return response()->json(['status' => 'success', 'category' => $category], 200);
+    	return response()->json(['category' => $category], 200);
     }
 
     public function store(Request $request){
@@ -49,10 +49,10 @@ class CategoryController extends Controller
         }
         catch (Exception $e){
 
-            return response()->json(['status' => 'failed', 'message' => $e],401);
+            return response()->json(['message' => $e],401);
         }
 
-        return response()->json(['status' => 'success', 'message' => 'Category has been created successfully', 'category' => $category ],200);
+        return response()->json(['message' => 'Category has been created successfully', 'category' => $category ],200);
     	
     }
 
@@ -70,10 +70,10 @@ class CategoryController extends Controller
         $category = Category::find($id);
         if($category->fill($request->all())->save()){
 
-            return response()->json(['status' => 'success', 'message' => 'Category has been updated successfully', 'category' => $category], 200);
+            return response()->json(['message' => 'Category has been updated successfully', 'category' => $category], 200);
         }
 
-        return response()->json(['status' => 'failed', 'message' => 'Category has not updated successfully'], 401);
+        return response()->json(['message' => 'Category has not updated successfully'], 401);
     }
 
     public function destory(Request $request, $id){
@@ -84,9 +84,9 @@ class CategoryController extends Controller
 
             $category->delete();
 
-            return response()->json(['status' => 'success', 'message' => 'Category has been deleted successfully', 'category' => $category], 200);
+            return response()->json(['message' => 'Category has been deleted successfully', 'category' => $category], 200);
         }
 
-        return response()->json(['status' => 'failed', 'message' => 'Category has not deleted successfully'], 401);
+        return response()->json(['message' => 'Category has not deleted successfully'], 401);
     }
 }

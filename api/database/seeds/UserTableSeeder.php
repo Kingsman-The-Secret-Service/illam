@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         		'name' => 'Kaviarasan K K',
         		'email' => 'kaviarasankk@gmail.com',
         		'phone' => '9789231303',
-        		'password' => Hash::make('secret'),
+        		'password' => Hash::make('pranaya'),
             	'api_token' => 'UHRrNXN2SzUxMmlqc2ZNb3MxVjUyR1g3RTlEU3JSaFlFMndKb0ZNWA=='
         	],
         	[
@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
         		'name' => 'Kavi',
         		'email' => 'kavikk@gmail.com',
         		'phone' => '9789231333',
-        		'password' => Hash::make('secret'),
+        		'password' => Hash::make('pranaya'),
             	'api_token' => ''
         	]
     	]);

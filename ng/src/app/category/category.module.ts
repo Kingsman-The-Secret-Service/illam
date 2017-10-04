@@ -1,26 +1,17 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { AuthService } from '../auth/auth.service';
-import { ChildComponent } from '../app/app.component';
-
+// Service
 import { CategoryService } from './category.service';
+
+// Component
 import { CategoryListComponent, CategoryFormComponent } from './category.component';
 
-const CategoryRoutes: Routes = [
-    {
-        path:'category',
-        component:ChildComponent,
-        canActivate: [AuthService],
-        canActivateChild: [AuthService],
-        children:[
-            {path:'', component:CategoryListComponent },
-            {path:'create', component:CategoryFormComponent }
-        ]
-    }
-];
+// Routes
+import { CategoryRoutes } from './category.route';
+
 
 @NgModule({
     imports: [
@@ -32,9 +23,8 @@ const CategoryRoutes: Routes = [
         CategoryListComponent,
         CategoryFormComponent,
     ],
-    providers: [ 
+    providers: [
     	CategoryService 
     ]
 })
-
 export class CategoryModule {}

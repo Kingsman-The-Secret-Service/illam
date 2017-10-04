@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers }    from '@angular/http';
-import { Router, CanActivate, CanActivateChild,
-		ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Authenticate Routes
+import { Router, CanActivate, CanActivateChild,
+		ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+
+// Environment
 import { environment } from '../../environments/environment';
 
 
@@ -12,16 +15,14 @@ export class AuthService implements CanActivate, CanActivateChild {
 
 	private url = environment.apiEndPoint + 'authenticate';
 
-	constructor(private http: Http, private router: Router) {}
+	constructor(private http: HttpClient, private router: Router) {}
 
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-
 		this.isLoggedIn();
 		return true;
 	}
 
 	canActivateChild(){
-
 		this.isLoggedIn();
 		return true;
 	}
@@ -29,24 +30,15 @@ export class AuthService implements CanActivate, CanActivateChild {
 	isLoggedIn(){
 
 		let token = localStorage.getItem('token');
-
 		if(token){
-
 			return true;
-
 		}else{
-
 			this.router.navigate(['login']);
 		}
 	}
 
-	getToken (formData:object){
+	authenticate (formData:object){
 
-		return this.http.post(this.url, formData)
-				.map(response => response.json())
-				.catch(error => {
-					return Observable.throw(error.json());
-				});
+		return this.http.post(this.url, formData);
 	}
-
 }

@@ -7,9 +7,7 @@
     {
       "root": "src",
       "outDir": "../api/public/js/",
-      "assets": [
-         { "glob": "**/*.css", "input": "assets/css/", "output": "../api/public/css/" }
-      ],
+      "assets": [],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from "@angular/router";
+
+// Service
 import { AuthService } from './auth.service';
 
-export interface FormError {
-  error: string;
-  params: any;
-}
 
 @Component({
   selector: 'app-login',
@@ -14,26 +12,25 @@ export interface FormError {
   styleUrls: ['./login.css']
 })
 export class LoginFormComponent implements OnInit {
-
-	message: string;
-	isValidFormSubmitted: boolean;
+	
 	loginForm: FormGroup;
+	errorMessage: string;
 	email: FormControl;
 	password: FormControl;
 
 	constructor(private auth: AuthService, private router: Router){
-
-	}
-
-	ngOnInit(){
 
 		let token = localStorage.getItem('token');
 
 		if(token){
 			this.router.navigate(["/"]);
 		}
+	}
 
-		this.createFormControl();
+	ngOnInit(){
+
+		this.email = new FormControl('', []);
+		this.password = new FormControl('',[]);
 
 		this.loginForm = new FormGroup({
 			email: this.email,
@@ -41,57 +38,43 @@ export class LoginFormComponent implements OnInit {
 		});
 	}
 
-	createFormControl(){
-
-		this.email = new FormControl('', [
-			// Validators.required,
-			// Validators.pattern("[^ @]*@[^ @]*")
-		]);
-
-		this.password = new FormControl('',[
-			// Validators.required,
-			// Validators.minLength(5)
-		])
-	}
-
 	onSubmit() {
 		if (this.loginForm.valid) {
 
-			this.auth.getToken(this.loginForm.value)
+			this.auth.authenticate(this.loginForm.value)
 				.subscribe(
-					response => this.handleSuccess(response),
-					error => this.handleError(error)
+					dataResponse => this.handleData(dataResponse),
+					errorResponse => this.handleError(errorResponse)
 				);
-			
-			// this.loginForm.reset();
 		}
 	}
 
-	handleSuccess(response){
+	handleData(dataResponse){
 
-		let data = response['data'];
-		let token = data['api_token'];
+		let user = dataResponse['user'];
+		let token = user['api_token'];
 		
 		localStorage.setItem('token', token);
 		this.router.navigate(["/"]);
 	}
 
-	handleError(errors) {
+	handleError(errorResponse) {
 
-		for(let error in errors){
+		let errors = JSON.parse(errorResponse['error']);
 
-			if(['message', 'data'].indexOf(error) > -1){
+		this.password.setValue(null);
+		
+		for(let err in errors){
+
+			if(['error', 'data'].indexOf(err) > -1){
 				
-				this.message = errors[error];
+				this.errorMessage = errors[err];
 			}else{
 
-				this[error].setErrors(errors[error]);
-				console.log("Err Comp",error,errors[error]);
+				this[err].setErrors(errors[err]);
 			}
-
 			
 		}
-		
 	}
 }
 
