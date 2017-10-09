@@ -33,7 +33,7 @@ class UserController extends Controller
     public function store(Request $request){ 
 
         $this->validate($request, [
-            'email'  => 'required|unique:users',
+            'email'  => 'required|email|unique:users',
             'password' => 'required|min:6',
             'name'  => 'required|min:5',
             'phone' => 'required|min:11|numeric|unique:users',
@@ -62,7 +62,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'family_id' => 'sometimes',
-            'email'  => 'sometimes|unique:users,email,'.$id,
+            'email'  => 'sometimes|email|unique:users,email,'.$id,
             'password' => 'sometimes|min:6',
             'name'  => 'sometimes|min:5',
             'phone' => 'sometimes|min:11|numeric|unique:users,phone,'.$id,
@@ -82,7 +82,7 @@ class UserController extends Controller
     {
  
         $this->validate($request, [
-           'email' => 'required',
+           'email' => 'required|email',
            'password' => 'required|min:6'
         ]);
  

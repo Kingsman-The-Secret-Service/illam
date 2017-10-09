@@ -10,6 +10,7 @@ import { AuthInterceptor } from '../auth/auth.interceptor';
 
 // Modules
 import { AuthModule } from '../auth/auth.module';
+import { UserModule } from '../user/user.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { CategoryModule } from '../category/category.module';
 
@@ -25,6 +26,7 @@ const AppRoutes: Routes = [];
             // { enableTracing: true }
         ),
         AuthModule,
+        UserModule,
         DashboardModule,
         CategoryModule,
     ],

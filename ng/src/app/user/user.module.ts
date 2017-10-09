@@ -4,26 +4,26 @@ import { ReactiveFormsModule }  from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 // Service
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth/auth.service';
+import { UserService } from './user.service';
 
 // Component 
-import { LoginFormComponent, LogoutComponent } from './auth.component';
+import { UserFormComponent } from './user.component';
 
 // Route
-import { AuthRoutes } from './auth.route';
+import { UserRoutes } from './user.route';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-        RouterModule.forChild(AuthRoutes)
+        RouterModule.forChild(UserRoutes)
     ],
     declarations: [
-        LoginFormComponent,
-        LogoutComponent
+        UserFormComponent
     ],
     providers: [
-        AuthService
+        UserService
     ],
 })
-export class AuthModule {}
+export class UserModule {}

@@ -3,40 +3,46 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from "@angular/router";
 
 // Service
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth/auth.service';
+import { UserService } from './user.service';
 
 
 @Component({
-  selector: 'auth-login',
-  templateUrl: './login.html'
+  selector: 'user-register',
+  templateUrl: './register.html',
+  styleUrls: ['./register.css']
 })
-export class LoginFormComponent implements OnInit {
-		
+export class UserFormComponent implements OnInit{
+
 	errorMessage: string;
-	loginForm: FormGroup;
+	registerForm: FormGroup;
+	name: FormControl;
 	email: FormControl;
+	phone: FormControl;
 	password: FormControl;
 
-	constructor(private auth: AuthService, private router: Router){
-
-		this.auth.isLoggedIn();
-	}
+	constructor(private auth:AuthService, private user:UserService, private router: Router){}
 
 	ngOnInit(){
 
+		this.name = new FormControl('', []);
 		this.email = new FormControl('', []);
+		this.phone = new FormControl('', []);
 		this.password = new FormControl('',[]);
 
-		this.loginForm = new FormGroup({
+		this.registerForm = new FormGroup({
+			name: this.name,
 			email: this.email,
+			phone: this.phone,
 			password: this.password
 		});
 	}
 
-	onSubmit() {
-		if (this.loginForm.valid) {
+	onSubmit(){
 
-			this.auth.authenticate(this.loginForm.value)
+		if (this.registerForm.valid) {
+
+			this.user.post(this.registerForm.value)
 				.subscribe(
 					dataResponse => this.handleData(dataResponse),
 					errorResponse => this.handleError(errorResponse)
@@ -59,18 +65,5 @@ export class LoginFormComponent implements OnInit {
 				this[err].setErrors(errors[err]);
 			}
 		}
-	}
-}
-
-@Component({
-	template:""
-})
-export class LogoutComponent implements OnInit{
-
-	constructor(private auth: AuthService, private router: Router){}
-
-	ngOnInit(){
-
-		this.auth.doLogout();
 	}
 }

@@ -2,28 +2,35 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="card-header">
-                    <h2 class="form-signin-heading text-center">Sign in</h2>
+                    <h2 class="form-signin-heading text-center">Sign Up</h2>
                 </div>
                 <div class="card-block">
                     <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+                    <div class="form-group" [ngClass]="{'has-danger':name.errors}">
+                        <input type="text" class="form-control" placeholder="Name" formControlName="name" />
+                        <div *ngIf="name.errors" class="form-control-feedback">{{ name.errors }}</div>
+                    </div>
                     <div class="form-group" [ngClass]="{'has-danger':email.errors}">
                         <input type="email" class="form-control" placeholder="Email Address" formControlName="email" />
                         <div *ngIf="email.errors" class="form-control-feedback">{{ email.errors }}</div>
                     </div>
-
+                    <div class="form-group" [ngClass]="{'has-danger':phone.errors}">
+                        <input type="text" class="form-control" placeholder="Phone Number" formControlName="phone" />
+                        <div *ngIf="phone.errors" class="form-control-feedback">{{ phone.errors }}</div>
+                    </div>
                     <div class="form-group" [ngClass]="{'has-danger':password.errors}">
                         <input type="password" class="form-control" placeholder="Password" formControlName="password" />
                         <div *ngIf="password.errors" class="form-control-feedback">{{ password.errors }}</div>
                     </div>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                 </div>
                 <div class="card-footer">
-                    <a [routerLink]="['/register']" class="btn btn-success btn-block">Register</a>
+                    <a [routerLink]="['/login']" class="btn btn-success btn-block">Login</a>
                 </div>
             </form>
-            </div>
         </div>
     </div>
 </div>

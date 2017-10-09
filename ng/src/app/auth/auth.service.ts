@@ -18,18 +18,19 @@ export class AuthService implements CanActivate, CanActivateChild {
 	constructor(private http: HttpClient, private router: Router) {}
 
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-		this.isLoggedIn();
+		this.canLoggedIn();
 		return true;
 	}
 
 	canActivateChild(){
-		this.isLoggedIn();
+		this.canLoggedIn();
 		return true;
 	}
 
-	isLoggedIn(){
+	canLoggedIn(){
 
-		let token = localStorage.getItem('token');
+	 	let token = localStorage.getItem('api_token');
+
 		if(token){
 			return true;
 		}else{
@@ -37,8 +38,38 @@ export class AuthService implements CanActivate, CanActivateChild {
 		}
 	}
 
-	authenticate (formData:object){
+	isLoggedIn(){
+
+		let token = localStorage.getItem('api_token');
+
+		if(token){
+			this.router.navigate(['/']);
+		}else{
+			this.router.navigate(['login']);
+		}
+	}
+
+	authenticate (formData:any){
 
 		return this.http.post(this.url, formData);
 	}
+
+	preserveUser(userData){
+
+		let user = userData['user'];
+
+		for(let key in user){
+
+			localStorage.setItem(key, user[key]);
+		}
+		this.isLoggedIn();
+	}
+
+	doLogout(){
+
+		localStorage.clear();
+		this.isLoggedIn();
+	}
+
+	
 }
