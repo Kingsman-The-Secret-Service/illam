@@ -6,16 +6,19 @@ import { Router } from "@angular/router";
 import { AuthService } from '../auth/auth.service';
 import { UserService } from './user.service';
 
+// Model
+import { User } from './user';
 
 @Component({
   selector: 'user-register',
-  templateUrl: './register.html',
-  styleUrls: ['./register.css']
+  templateUrl: './register.html'
 })
 export class UserFormComponent implements OnInit{
 
 	errorMessage: string;
 	registerForm: FormGroup;
+	family_name: FormControl;
+	family_hexcolor: FormControl;
 	name: FormControl;
 	email: FormControl;
 	phone: FormControl;
@@ -25,12 +28,16 @@ export class UserFormComponent implements OnInit{
 
 	ngOnInit(){
 
+		this.family_name = new FormControl('',[]);
+		this.family_hexcolor = new FormControl('',[]);
 		this.name = new FormControl('', []);
 		this.email = new FormControl('', []);
 		this.phone = new FormControl('', []);
 		this.password = new FormControl('',[]);
 
 		this.registerForm = new FormGroup({
+			family_name: this.family_name,
+			family_hexcolor: this.family_hexcolor,
 			name: this.name,
 			email: this.email,
 			phone: this.phone,
@@ -65,5 +72,22 @@ export class UserFormComponent implements OnInit{
 				this[err].setErrors(errors[err]);
 			}
 		}
+	}
+}
+
+
+@Component({
+  selector: 'user-profile',
+  templateUrl: './profile.html'
+})
+export class UserProfileComponent implements OnInit{
+
+	userProfile;
+
+	constructor(private user:UserService){}
+
+	ngOnInit(){
+
+		this.user.get().subscribe(profile => this.userProfile = profile);
 	}
 }

@@ -3,6 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import {
+    NbActionsModule,
+    NbCardModule,
+    NbLayoutModule,
+    NbSidebarModule,
+    NbTabsetModule,
+    NbThemeModule,
+    NbUserModule,
+    NbMenuModule
+} from '@nebular/theme';
+
+
+import { NbSidebarService } from '@nebular/theme';
+
 
 // Bootstrap
 import { AppComponent, ChildComponent } from './app.component';
@@ -25,6 +39,13 @@ const AppRoutes: Routes = [];
             AppRoutes,
             // { enableTracing: true }
         ),
+        NbThemeModule.forRoot({ name: 'default' }),
+        NbLayoutModule,
+        NbSidebarModule,
+        NbActionsModule,
+        NbUserModule,
+        NbCardModule,
+        NbMenuModule.forRoot(),
         AuthModule,
         UserModule,
         DashboardModule,
@@ -34,11 +55,14 @@ const AppRoutes: Routes = [];
         AppComponent,
         ChildComponent
     ],
-    providers: [{
-        provide: HTTP_INTERCEPTORS,
-        useClass: AuthInterceptor,
-        multi: true
-    }],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        },
+        NbSidebarService
+    ],
     bootstrap: [
         AppComponent
     ]

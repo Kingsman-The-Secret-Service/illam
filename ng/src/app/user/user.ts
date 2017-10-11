@@ -7,3 +7,10 @@ export class User{
 	image:string;
 	api_token:string;
 }
+
+export class Family{
+	id:number;
+	name: string;
+	hexcolor:string;
+	user: User[]
+}

@@ -1,32 +1,30 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-  <a class="navbar-brand" routerLink="/">Kanaku Puthagam</a>
+<nb-layout windowMode>
+    <nb-layout-header fixed>
+        <nb-actions size="medium">
+            <nb-action class="control-item" (click)="toggleSidebar()" icon="nb-menu" ></nb-action>
+            <nb-action><strong>Kanaku Puthagam</strong></nb-action>
+        </nb-actions>
+        <div class="container">
+            <div class="row justify-content-end">
+                <nb-actions class="col-3" size="medium" fullWidth>
+                    <nb-action>
+                        <nb-user [menu]="userMenu" [name]="name" [picture]="user?.image"></nb-user>
+                    </nb-action>
+                </nb-actions>
+            </div>
+        </div>
+    </nb-layout-header>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/category">Category</a>
-      </li>
-    </ul>
-  </div>
+    <nb-sidebar left responsive>
+        <nb-menu [items]="menu"></nb-menu>
+    </nb-sidebar>
 
-  <div class="collapse navbar-collapse float-right" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/logout">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-	<div class="row justify-content-md-center">
-	 	<router-outlet></router-outlet>
-	</div>
-</div>
+    <nb-layout-column left>
+        <router-outlet></router-outlet>
+    </nb-layout-column>
 
-<div class="text-center">
-	<hr/>
-	copyright &copy; 2017
-</div>
+    <nb-layout-footer fixed>
+        <p>copyright &copy; 2017</p>
+    </nb-layout-footer>
+</nb-layout>
+

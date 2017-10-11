@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Family;
 use App\User;
 
 class UserController extends Controller
@@ -33,6 +34,8 @@ class UserController extends Controller
     public function store(Request $request){ 
 
         $this->validate($request, [
+            'family_name'  => 'required|min:5',
+            'hexcolor' => 'sometimes',
             'email'  => 'required|email|unique:users',
             'password' => 'required|min:6',
             'name'  => 'required|min:5',
@@ -41,7 +44,14 @@ class UserController extends Controller
         ]); 
 
         try {
+
+            $family   = new Family;
+            $family->name  = $request->input('family_name');
+            $family->hexcolor  = $request->input('hexcolor');
+            $family->save();
+
             $user   = new User;
+            $user->family_id = $family->id;
             $user->email  = $request->input('email');
             $user->password  = Hash::make($request->input('password'));
             $user->name  = $request->input('name');
@@ -54,14 +64,14 @@ class UserController extends Controller
         }
 
         $apiToken = $this->generateToken($user);
-        return response()->json(['message' => 'User has been created successfully','user' => $user], 200);
+        return response()->json(['message' => 'User has been created successfully','user' => $user, 'family' => $family], 200);
 
     }
 
     public function update(Request $request, $id){
 
         $this->validate($request, [
-            'family_id' => 'sometimes',
+            'family_name' => 'sometimes|min:5',
             'email'  => 'sometimes|email|unique:users,email,'.$id,
             'password' => 'sometimes|min:6',
             'name'  => 'sometimes|min:5',

@@ -14,7 +14,8 @@ export const CategoryRoutes: Routes = [
         canActivate: [AuthService],
         canActivateChild: [AuthService],
         children:[
-            {path:'', component:CategoryListComponent },
+            {path:'', redirectTo:'/category/list', pathMatch:'full' },
+            {path:'list', component:CategoryListComponent },
             {path:'create', component:CategoryFormComponent }
         ]
     }

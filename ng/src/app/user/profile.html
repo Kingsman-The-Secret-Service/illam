@@ -1,0 +1,29 @@
+<nb-card>
+    <nb-card-header>
+        User Profile
+    </nb-card-header>
+    <nb-card-body>
+        <table class="table table-stripped table-bordered">
+            <tr>
+                <th>Family Name</th>
+                <td> {{ userProfile?.user?.family?.name }}</td>
+            </tr>
+            <tr>
+                <th>Family Color</th>
+                <td [ngStyle]="{'background-color': userProfile?.user?.family?.hexcolor}"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td> {{ userProfile?.user?.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td> {{ userProfile?.user?.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td> {{ userProfile?.user?.phone }}</td>
+            </tr>
+        </table>
+    </nb-card-body>
+</nb-card>

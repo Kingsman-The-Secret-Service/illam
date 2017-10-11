@@ -48,7 +48,7 @@ export class LoginFormComponent implements OnInit {
 
 		this.auth.preserveUser(dataResponse);
 	}
-	
+
 	handleError(errorResponse) {
 		let errors = JSON.parse(errorResponse['error']);
 		this.password.setValue(null);

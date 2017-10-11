@@ -2,6 +2,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NbCardModule } from '@nebular/theme';
 
 // Service
 import { CategoryService } from './category.service';
@@ -17,7 +18,8 @@ import { CategoryRoutes } from './category.route';
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forChild(CategoryRoutes)
+        RouterModule.forChild(CategoryRoutes),
+        NbCardModule
     ],
     declarations: [
         CategoryListComponent,

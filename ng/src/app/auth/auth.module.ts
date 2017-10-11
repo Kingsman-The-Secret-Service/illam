@@ -2,6 +2,7 @@ import { NgModule }  from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }  from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NbCardModule, NbLayoutModule } from '@nebular/theme';
 
 // Service
 import { AuthService } from './auth.service';
@@ -16,7 +17,9 @@ import { AuthRoutes } from './auth.route';
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-        RouterModule.forChild(AuthRoutes)
+        RouterModule.forChild(AuthRoutes),
+        NbCardModule,
+        NbLayoutModule
     ],
     declarations: [
         LoginFormComponent,

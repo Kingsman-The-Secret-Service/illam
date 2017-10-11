@@ -12,6 +12,11 @@ export class UserService{
 
 	constructor(private http: HttpClient) {}
 
+	get(){
+
+		return this.http.get(this.url);
+	}
+
 	post(formData){
 		return this.http.post(this.url, formData);
 	}
