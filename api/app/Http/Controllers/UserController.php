@@ -35,7 +35,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'family_name'  => 'required|min:5',
-            'hexcolor' => 'sometimes',
+            'family_hexcolor' => 'sometimes',
             'email'  => 'required|email|unique:users',
             'password' => 'required|min:6',
             'name'  => 'required|min:5',
@@ -47,7 +47,7 @@ class UserController extends Controller
 
             $family   = new Family;
             $family->name  = $request->input('family_name');
-            $family->hexcolor  = $request->input('hexcolor');
+            $family->hexcolor  = $request->input('family_hexcolor');
             $family->save();
 
             $user   = new User;
@@ -68,20 +68,35 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request){
+
+        $id = $request['id'];
+        $familyId = $request['family_id'];
 
         $this->validate($request, [
-            'family_name' => 'sometimes|min:5',
-            'email'  => 'sometimes|email|unique:users,email,'.$id,
-            'password' => 'sometimes|min:6',
-            'name'  => 'sometimes|min:5',
-            'phone' => 'sometimes|min:11|numeric|unique:users,phone,'.$id,
+            'family_name' => 'required|min:5',
+            'family_hexcolor' => 'sometimes',
+            // 'email'  => 'required|email|unique:users,email,'.$id,
+            // 'password' => 'required|min:6',
+            'name'  => 'required|min:5',
+            'phone' => 'required|min:11|numeric|unique:users,phone,'.$id,
             'image' => 'sometimes',
         ]);
 
-        $user = User::find($id);
-        if($user->fill($request->all())->save()){
 
+        $family = Family::find($familyId);
+        $user = User::find($id);
+
+        $familyData = [
+            'name' => $request['family_name'],
+            'hexcolor' => $request['family_hexcolor']
+        ];
+        if(
+            $family->fill($familyData)->save() && 
+            $user->fill($request->all())->save()
+        ){
+
+            $user->family;
             return response()->json(['message' => 'User has been updated successfully', 'user' => $user], 200);
         }
 
@@ -102,6 +117,7 @@ class UserController extends Controller
             if(Hash::check($request->input('password'), $user->password)){
      
                 $apiToken = $this->generateToken($user);
+                $user->family;
      
                 return response()->json(['user' => $user], 200);
      

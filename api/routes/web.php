@@ -24,12 +24,12 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 	// User
 	$router->get('user', 'UserController@index');
     $router->post('user', 'UserController@store');
-    $router->put('user/{id}/', 'UserController@update');
+    $router->put('user', 'UserController@update');
 
     // Family
-    $router->get('family', 'FamilyController@index');
-    $router->post('family', 'FamilyController@store');
-    $router->put('family/{id}/', 'FamilyController@update');
+    // $router->get('family', 'FamilyController@index');
+    // $router->post('family', 'FamilyController@store');
+    // $router->put('family/{id}/', 'FamilyController@update');
 
     // People
     $router->get('people', 'PeopleController@index');

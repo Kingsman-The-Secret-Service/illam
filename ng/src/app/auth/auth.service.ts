@@ -57,12 +57,27 @@ export class AuthService implements CanActivate, CanActivateChild {
 	preserveUser(userData){
 
 		let user = userData['user'];
-
-		for(let key in user){
-
-			localStorage.setItem(key, user[key]);
-		}
+		this.storeData(user);
 		this.isLoggedIn();
+	}
+
+	storeData(data){
+
+		let key:any
+
+		for(key in data){
+
+			if(data[key] instanceof Object){
+
+				for(let nestKey  in data[key]){
+
+					localStorage.setItem(key+'_'+nestKey, data[key][nestKey]);
+				}
+			}
+			else{
+				localStorage.setItem(key, data[key]);	
+			}
+		}
 	}
 
 	doLogout(){

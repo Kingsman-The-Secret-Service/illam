@@ -5,7 +5,7 @@
                 Sign Up
             </nb-card-header>
             <nb-card-body>  
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
                     <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 

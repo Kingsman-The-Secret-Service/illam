@@ -5,17 +5,18 @@ import { AuthService } from '../auth/auth.service';
 
 // Component
 import { ChildComponent } from '../app/app.component';
-import { UserFormComponent, UserProfileComponent } from './user.component';
+import { CreateUserComponent, ShowUserComponent, UpdateUserComponent } from './user.component';
 
 export const UserRoutes: Routes = [
-	{ path:'register', component:UserFormComponent },
+	{ path:'register', component:CreateUserComponent },
 	{ 
 		path:'profile', 
 		component:ChildComponent, 
 		canActivate: [AuthService],
 		canActivateChild: [AuthService],
         children:[
-            {path:'', component:UserProfileComponent }
+            {path:'', component:ShowUserComponent },
+            {path:'update', component:UpdateUserComponent }
         ]
 	},
 ];

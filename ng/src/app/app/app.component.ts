@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { 
-	NbMediaBreakpoint,
-  	NbMediaBreakpointsService,
-  	NbThemeService,
-	NbSidebarService 
-
-} from '@nebular/theme';
-
+import { NbSidebarService } from '@nebular/theme';
+import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
   selector: 'app-root',
@@ -24,9 +18,19 @@ export class AppComponent {
 
 export class ChildComponent {
 
-  	name = localStorage.getItem('name');
-    menu = mainMenu;
-    userMenu = userMenu;
+  	public name = localStorage.getItem('name');
+    public menu = mainMenu;
+    public userMenu = userMenu;
+    public toasterconfig:ToasterConfig = new ToasterConfig({
+        animation: "flyRight",
+        limit: 5,
+        tapToDismiss: true,
+        showCloseButton: true,
+        newestOnTop: true,
+        timeout: 2000,
+        positionClass: "toast-top-right",
+        preventDuplicates: true,
+    });
     
 
 	constructor(private sidebarService: NbSidebarService) {}
@@ -66,6 +70,7 @@ const mainMenu: NbMenuItem[] = [
 ];
 
 const userMenu: NbMenuItem[]  = [
-	{ title: 'Profile', link: '/profile'},
+	{ title: 'View', link: '/profile'},
+  { title: 'Edit', link: '/profile/update'},
 	{ title: 'Log out', link: '/logout' }
 ];

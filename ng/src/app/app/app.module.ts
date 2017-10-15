@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
-import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+
+// Theme
 import {
+    // Module
     NbActionsModule,
     NbCardModule,
     NbLayoutModule,
@@ -11,11 +14,13 @@ import {
     NbTabsetModule,
     NbThemeModule,
     NbUserModule,
-    NbMenuModule
+    NbMenuModule,
+    // Service
+    NbSidebarService
 } from '@nebular/theme';
 
-
-import { NbSidebarService } from '@nebular/theme';
+// Util
+import { ToasterModule } from 'angular2-toaster';
 
 
 // Bootstrap
@@ -33,12 +38,14 @@ const AppRoutes: Routes = [];
 @NgModule({
     imports: [
         BrowserModule,
-        HttpModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         RouterModule.forRoot(         
             AppRoutes,
             // { enableTracing: true }
         ),
+        
+        // Theme
         NbThemeModule.forRoot({ name: 'default' }),
         NbLayoutModule,
         NbSidebarModule,
@@ -46,6 +53,11 @@ const AppRoutes: Routes = [];
         NbUserModule,
         NbCardModule,
         NbMenuModule.forRoot(),
+
+        // Util
+        ToasterModule,
+
+        // Application
         AuthModule,
         UserModule,
         DashboardModule,
