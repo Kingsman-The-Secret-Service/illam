@@ -2,3 +2,4 @@
 /api/.env
 /api/.vagrant
 /ng/node_modules
+.gitignore
