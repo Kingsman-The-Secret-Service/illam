@@ -27,5 +27,8 @@ urlpatterns = [
     # path('', "Hello World"),
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
     path('members', views.MemberList.as_view()),
-    path('members/<int:pk>/', views.MemberDetail.as_view())
+    path('members/<int:pk>/', views.MemberDetail.as_view()),
+    path('expense/', include('expense.urls'))
+
 ]
+
