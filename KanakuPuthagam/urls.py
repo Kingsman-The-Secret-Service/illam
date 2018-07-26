@@ -25,4 +25,6 @@ urlpatterns = [
     path('income/',include('income.urls')),
     # path('', "Hello World"),
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    path('expense/', include('expense.urls'))
 ]
+
