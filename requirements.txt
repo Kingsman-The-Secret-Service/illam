@@ -1,2 +1,5 @@
 Django==2.0
 graphene-django>=2.0
+djangorestframework==3.8.2
+djangorestframework-jsonapi==2.5.0
+graphql-core==2.1

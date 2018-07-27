@@ -18,6 +18,7 @@ from django.urls import include, path
 
 from graphene_django.views import GraphQLView
 from django.contrib.auth import views as auth_views
+from KanakuPuthagam import views
 
 
 urlpatterns = [
@@ -25,4 +26,9 @@ urlpatterns = [
     path('income/',include('income.urls')),
     # path('', "Hello World"),
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    path('members', views.MemberList.as_view()),
+    path('members/<int:pk>/', views.MemberDetail.as_view()),
+    path('expense/', include('expense.urls'))
+
 ]
+
