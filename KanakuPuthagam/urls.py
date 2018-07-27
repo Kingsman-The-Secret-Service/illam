@@ -36,6 +36,10 @@ urlpatterns = [
     # Source API
     path('source', views.SourceList.as_view()),
     path('source/<int:pk>', views.SourceDelail.as_view()),
+
+    # Income API
+    path('income', views.IncomeList.as_view()),
+    path('income/<int:pk>/', views.IncomeDetail.as_view()),
     # Category API
     
 

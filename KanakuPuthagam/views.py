@@ -18,3 +18,12 @@ class SourceList(generics.ListCreateAPIView):
 class SourceDelail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Source.objects.all()
     serializer_class = SourceSerializer
+
+class IncomeList(generics.ListCreateAPIView):
+    queryset = Income.objects.all()
+    serializer_class = IncomeSerializer
+
+class IncomeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Income.objects.all()
+    serializer_class = IncomeSerializer
+
