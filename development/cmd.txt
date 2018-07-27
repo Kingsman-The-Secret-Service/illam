@@ -1,0 +1,11 @@
+username : admin
+password : Password@123
+
+##################### TO LOAD DATA ####################
+Delete db.sqilte3 file
+python3 manage.py showmigrations
+python3 manage.py migrate
+python3 manage.py loaddata development/fixtures.json
+
+##################### TO DUMP DATA ####################
+python3 manage.py dumpdata -o development/fixtures.json
