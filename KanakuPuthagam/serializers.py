@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from KanakuPuthagam.models  import Member
+
+from KanakuPuthagam.models  import *
+
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member

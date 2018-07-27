@@ -22,10 +22,19 @@ from KanakuPuthagam import views
 
 
 urlpatterns = [
+    
+    # Admin
     path('admin/', admin.site.urls),
+
+    # Authentication
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
+
+    # Member API
     path('members', views.MemberList.as_view()),
     path('members/<int:pk>/', views.MemberDetail.as_view()),
+
+    # Category API
+    
 
 ]
 
