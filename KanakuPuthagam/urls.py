@@ -33,6 +33,9 @@ urlpatterns = [
     path('members', views.MemberList.as_view()),
     path('members/<int:pk>/', views.MemberDetail.as_view()),
 
+    # Source API
+    path('source', views.SourceList.as_view()),
+    path('source/<int:pk>', views.SourceDelail.as_view()),
     # Category API
     
 
