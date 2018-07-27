@@ -3,4 +3,4 @@ db.sqlite3
 *.pyo
 __pycache__/
 migrations/
-.vscode
+.vscode/
