@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from graphene_django.views import GraphQLView
 from django.contrib.auth import views as auth_views
-from KanakuPuthagam import views
+from KanakuPuthagam.views import member, category
 
 
 urlpatterns = [
@@ -26,15 +25,21 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
+    ############################## API ##################################
+
+    # Member API
+    path('members', member.MemberList.as_view()),
+    path('members/<int:pk>/', member.MemberDetail.as_view()),
+
+    # Category API
+    path('category', category.CategoryList.as_view()),
+    
+    ############################### UI/UX ###############################
+
     # Authentication
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
 
-    # Member API
-    path('members', views.MemberList.as_view()),
-    path('members/<int:pk>/', views.MemberDetail.as_view()),
-
-    # Category API
-    
-
+    # Dashboard
+    # path('', ),
 ]
 

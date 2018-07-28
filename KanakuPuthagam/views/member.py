@@ -1,7 +1,10 @@
-from rest_framework import generics
+from KanakuPuthagam.models import Member
+from rest_framework import serializers, generics
 
-from KanakuPuthagam.models import *
-from KanakuPuthagam.serializers import *
+class MemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = ('id', 'name', 'created_on', 'modified_on')
 
 class MemberList(generics.ListCreateAPIView):
     queryset = Member.objects.all()
