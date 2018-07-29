@@ -1,6 +1,6 @@
 from rest_framework import serializers, generics
 
-from KanakuPuthagam.models import Source
+from backend.models import Source
 
 class SourceSerializer(serializers.ModelSerializer):
     class Meta:

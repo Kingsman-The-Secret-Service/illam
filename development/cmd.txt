@@ -3,10 +3,10 @@ password : Password@123
 
 ##################### TO LOAD DATA ####################
 rm db.sqlite3
-python3 manage.py makemigrations KanakuPuthagam
+python3 manage.py makemigrations backend
 python3 manage.py showmigrations
 python3 manage.py migrate
-python3 manage.py loaddata development/fixtures.json
+python3 manage.py loaddata development/*.json
 
 ##################### TO DUMP DATA ####################
 python3 manage.py dumpdata -o development/fixtures.json

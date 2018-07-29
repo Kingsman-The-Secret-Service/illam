@@ -1,24 +1,6 @@
 [
     {
-        "model": "auth.user",
-        "pk": 1,
-        "fields": {
-            "password": "pbkdf2_sha256$100000$N3Ul2wiBT405$4po29Tg9abrASW+ofPfiAr0FxU/3mM7HFUIigG8sn/A=",
-            "last_login": "2018-07-27T07:37:21.648Z",
-            "is_superuser": true,
-            "username": "admin",
-            "first_name": "",
-            "last_name": "",
-            "email": "",
-            "is_staff": true,
-            "is_active": true,
-            "date_joined": "2018-07-27T07:37:11.760Z",
-            "groups": [],
-            "user_permissions": []
-        }
-    },
-    {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 1,
         "fields": {
             "name": "Kaviarasan K K",
@@ -27,7 +9,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 2,
         "fields": {
             "name": "Anumon P Thomas",
@@ -36,7 +18,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 3,
         "fields": {
             "name": "Logeshwaran G",
@@ -45,7 +27,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 4,
         "fields": {
             "name": "Venkatesan T K",
@@ -54,7 +36,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 5,
         "fields": {
             "name": "Karthikeyan M",
@@ -63,7 +45,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 6,
         "fields": {
             "name": "Sudheer Kumar",
@@ -72,7 +54,7 @@
         }
     },
     {
-        "model": "KanakuPuthagam.member",
+        "model": "backend.member",
         "pk": 7,
         "fields": {
             "name": "Tamilselvan",

@@ -1,7 +1,7 @@
 from rest_framework import serializers, generics
 from rest_framework_recursive.fields import RecursiveField
    
-from KanakuPuthagam.models import Category
+from backend.models import Category
 
 # class SubCategorySerializer(serializers.ModelSerializer):
 #     class Meta:

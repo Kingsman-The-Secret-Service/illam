@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %} Kanaku Puthagam</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Kaviarasan K K" >
+        <meta name="viewport" content="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+
+    {% include "layout/script.html" %}
+    {% block script %}
+    {% endblock %}   
+
+    {% load static %}
+    <script  type="text/babel" src="{% static "main.js" %}"></script> 
+</html>

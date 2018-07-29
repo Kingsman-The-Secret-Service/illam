@@ -1,6 +1,6 @@
 from rest_framework import serializers, generics
 
-from KanakuPuthagam.models import Income
+from backend.models import Income
 
 class IncomeSerializer(serializers.ModelSerializer):
     class Meta:

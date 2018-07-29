@@ -1,6 +1,6 @@
 from rest_framework import serializers, generics
 
-from KanakuPuthagam.models import Member
+from backend.models import Member
 
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
