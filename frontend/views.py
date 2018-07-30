@@ -28,3 +28,7 @@ def source(request):
 @login_required
 def category(request):
     return render(request, 'category.html')
+
+@login_required
+def tag(request):
+    return render(request, 'tag.html')

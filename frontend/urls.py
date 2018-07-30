@@ -11,6 +11,7 @@ urlpatterns = [
     path('member/', views.member, name='member'),
     path('source/', views.source, name='source'),
     path('category/', views.category, name='category'),
+    path('tag/', views.tag, name='tag'),
     path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
     path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
 
