@@ -5,11 +5,11 @@ from .views import member, category, source, income
 urlpatterns = [
     
     # Member API
-    path('members', member.MemberList.as_view()),
+    path('members', member.MemberList.as_view(), name="memberList"),
     path('member/<int:pk>/', member.MemberDetail.as_view()),
 
     # Source API
-    path('sources', source.SourceList.as_view()),
+    path('sources', source.SourceList.as_view(), name="sourceList"),
     path('source/<int:pk>', source.SourceDetail.as_view()),
 
     # Category API

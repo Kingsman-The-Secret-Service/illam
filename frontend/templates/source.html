@@ -2,18 +2,46 @@
 
 {% block title %} Source {% endblock %}
 
+{% block content %}
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-11">
+            <h4 class="mdc-typography">Source</h4>
+        </div>
+        <div class="mdc-layout-grid__cell--span-1">
+            <a href="{% url 'login' %}" class="mdc-fab mdc-fab--mini">
+                <i class="mdc-fab__icon material-icons" aria-hidden="true">add</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<table id="sourceListTable" class="mdl-data-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}
+
 {% block script %}
-<script  type="text/babel">
-
-class MainContent extends React.Component{
-    
-    render(){
-        return(
-
-            <div>Source Content</div>
-        );
-    }
-}
-
-</script> 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#sourceListTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "{% url 'sourceList' %}",
+        "columns": [
+           { "data" : "name" }
+        ],
+        "columnDefs": [
+            {
+                targets: [ 0 ],
+                "className": 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    });
+} );
+</script>
 {% endblock %}
