@@ -1,34 +1,31 @@
 from django.contrib import admin
 from django.urls import include, path
-from .views import member, category, source, income, tag, expenses, budget
+from .views import category, member, tag, budget, splitup, transaction
 
 urlpatterns = [
-    
-    # Member API
-    path('members', member.MemberList.as_view(), name="memberList"),
-    path('member/<int:pk>/', member.MemberDetail.as_view()),
-
-    # Source API
-    path('sources', source.SourceList.as_view(), name="sourceList"),
-    path('source/<int:pk>', source.SourceDetail.as_view()),
 
     # Category API
-    path('categories', category.CategoryList.as_view(), name="categoriesList"),
+    path('category', category.CategoryList.as_view(), name="CategoryList"),
+    path('category/<int:pk>/', category.CategoryDetail.as_view(), name="CategoryDetail"),
+    
+    # Member API
+    path('members', member.MemberList.as_view(), name="MemberList"),
+    path('member/<int:pk>/', member.MemberDetail.as_view(), name="MemberDetail"),
 
-    # Income API
-    path('incomes', income.IncomeList.as_view(), name="incomeList"),
-    path('income/<int:pk>/', income.IncomeDetail.as_view()),
-
-    # Expenses API
-    path('expenses', expenses.ExpensesList.as_view(), name="expensesList"),
-    path('expenses/<int:pk>/', expenses.ExpensesDetail.as_view()),
+    # Tag API
+    path('tag', tag.TagList.as_view(), name="TagList"),
+    path('tag/<int:pk/', tag.TagDetail.as_view(), name="TagDetail"),
 
     # Budget API
-    path('budget', expenses.ExpensesList.as_view(), name="budgetList"),
-    path('budget/<int:pk>/', expenses.ExpensesDetail.as_view()),
+    path('budget', budget.BudgetList.as_view(), name="BudgetList"),
+    path('budget/<int:pk>/', budget.BudgetDetail.as_view(), name="BudgetDetail"),
 
-    #Tag API
-    path('tag', tag.TagList.as_view(), name="tagList"),
-    path('tag/<int:pk/', tag.TagDetail.as_view())
+    # Splitup API
+    path('splitup', splitup.SplitupList.as_view(), name="SplitupList"),
+    path('splitup/<int:pk>/', splitup.SplitupDetail.as_view(), name="SplitupDetail"),
+
+    # Transaction API
+    path('transaction', transaction.TransactionList.as_view(), name="TransactionList"),
+    path('transaction/<int:pk>/', transaction.TransactionDetail.as_view(), name="TransactionDetail"),
 ]
 

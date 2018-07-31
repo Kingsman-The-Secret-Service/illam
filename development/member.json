@@ -3,63 +3,70 @@
         "model": "backend.member",
         "pk": 1,
         "fields": {
+            "user":1,
             "name": "Kaviarasan K K",
             "created_on": "2018-07-27T07:37:42.158Z",
-            "modified_on": "2018-07-27T07:37:42.158Z"
+            "updated_on": "2018-07-27T07:37:42.158Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 2,
         "fields": {
+            "user":1,
             "name": "Anumon P Thomas",
             "created_on": "2018-07-27T07:37:51.359Z",
-            "modified_on": "2018-07-27T07:37:51.359Z"
+            "updated_on": "2018-07-27T07:37:51.359Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 3,
         "fields": {
+            "user":1,
             "name": "Logeshwaran G",
             "created_on": "2018-07-27T07:37:59.015Z",
-            "modified_on": "2018-07-27T07:39:20.383Z"
+            "updated_on": "2018-07-27T07:39:20.383Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 4,
         "fields": {
+            "user":1,
             "name": "Venkatesan T K",
             "created_on": "2018-07-27T07:38:14.692Z",
-            "modified_on": "2018-07-27T07:38:14.692Z"
+            "updated_on": "2018-07-27T07:38:14.692Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 5,
         "fields": {
+            "user":1,
             "name": "Karthikeyan M",
             "created_on": "2018-07-27T07:38:30.023Z",
-            "modified_on": "2018-07-27T07:38:30.023Z"
+            "updated_on": "2018-07-27T07:38:30.023Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 6,
         "fields": {
+            "user":1,
             "name": "Sudheer Kumar",
             "created_on": "2018-07-27T07:38:37.052Z",
-            "modified_on": "2018-07-27T07:38:37.052Z"
+            "updated_on": "2018-07-27T07:38:37.052Z"
         }
     },
     {
         "model": "backend.member",
         "pk": 7,
         "fields": {
+            "user":1,
             "name": "Tamilselvan",
             "created_on": "2018-07-27T07:38:46.388Z",
-            "modified_on": "2018-07-27T07:38:46.388Z"
+            "updated_on": "2018-07-27T07:38:46.388Z"
         }
     }
 ]

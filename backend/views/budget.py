@@ -1,11 +1,13 @@
 from rest_framework import serializers, generics
 
 from backend.models import Budget
+from backend.views.splitup import SplitupSerializer
 
 class BudgetSerializer(serializers.ModelSerializer):
+    splitup = SplitupSerializer(many=True, read_only=True)
     class Meta:
         model = Budget
-        fields = ('id','date', 'category', 'member', 'amount', 'description', 'created_on' , 'modified_on')
+        fields = ('id', 'user', 'name', 'start_date', 'end_date', 'splitup', 'created_on' , 'updated_on')
 
 class BudgetList(generics.ListCreateAPIView):
     queryset = Budget.objects.all()

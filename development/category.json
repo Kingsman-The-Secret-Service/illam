@@ -1,1 +1,86 @@
-[{"model": "backend.member", "pk": 1, "fields": {"name": "Kaviarasan K K", "created_on": "2018-07-27T07:37:42.158Z", "modified_on": "2018-07-27T07:37:42.158Z"}}, {"model": "backend.member", "pk": 2, "fields": {"name": "Anumon P Thomas", "created_on": "2018-07-27T07:37:51.359Z", "modified_on": "2018-07-27T07:37:51.359Z"}}, {"model": "backend.member", "pk": 3, "fields": {"name": "Logeshwaran G", "created_on": "2018-07-27T07:37:59.015Z", "modified_on": "2018-07-27T07:39:20.383Z"}}, {"model": "backend.member", "pk": 4, "fields": {"name": "Venkatesan T K", "created_on": "2018-07-27T07:38:14.692Z", "modified_on": "2018-07-27T07:38:14.692Z"}}, {"model": "backend.member", "pk": 5, "fields": {"name": "Karthikeyan M", "created_on": "2018-07-27T07:38:30.023Z", "modified_on": "2018-07-27T07:38:30.023Z"}}, {"model": "backend.member", "pk": 6, "fields": {"name": "Sudheer Kumar", "created_on": "2018-07-27T07:38:37.052Z", "modified_on": "2018-07-27T07:38:37.052Z"}}, {"model": "backend.member", "pk": 7, "fields": {"name": "Tamilselvan", "created_on": "2018-07-27T07:38:46.388Z", "modified_on": "2018-07-27T07:38:46.388Z"}}, {"model": "backend.category", "pk": 1, "fields": {"parent": null, "name": "School Fees", "created_on": "2018-07-30T16:56:28.863Z", "updated_on": "2018-07-30T16:56:28.863Z"}}, {"model": "backend.category", "pk": 2, "fields": {"parent": null, "name": "Rent", "created_on": "2018-07-30T16:57:05.823Z", "updated_on": "2018-07-30T16:57:05.823Z"}}, {"model": "backend.category", "pk": 3, "fields": {"parent": null, "name": "Milk", "created_on": "2018-07-30T16:58:04.008Z", "updated_on": "2018-07-30T16:58:04.008Z"}}, {"model": "backend.source", "pk": 1, "fields": {"name": "Salary", "created_on": "2018-07-27T08:26:31.107Z", "modified_on": "2018-07-27T08:26:31.107Z"}}, {"model": "backend.source", "pk": 2, "fields": {"name": "Gift", "created_on": "2018-07-27T08:26:39.548Z", "modified_on": "2018-07-27T08:26:39.548Z"}}, {"model": "backend.source", "pk": 3, "fields": {"name": "Rent", "created_on": "2018-07-27T08:26:45.360Z", "modified_on": "2018-07-27T08:26:45.360Z"}}, {"model": "backend.income", "pk": 1, "fields": {"date": "2018-07-30", "name": 4, "source": 1, "amount": 12350, "description": "July Month Salary", "created_on": "2018-07-30T17:08:03.860Z", "modified_on": "2018-07-30T17:08:03.860Z"}}, {"model": "backend.income", "pk": 2, "fields": {"date": "2018-07-30", "name": 1, "source": 2, "amount": 2300, "description": "Gift", "created_on": "2018-07-30T17:08:33.504Z", "modified_on": "2018-07-30T17:08:33.504Z"}}, {"model": "backend.expenses", "pk": 1, "fields": {"date": "2018-07-30", "category": 3, "member": 4, "amount": 500, "description": "July month", "created_on": "2018-07-30T17:29:44.460Z", "modified_on": "2018-07-30T17:29:44.460Z"}}, {"model": "backend.expenses", "pk": 2, "fields": {"date": "2018-07-30", "category": 2, "member": 4, "amount": 8500, "description": "July month", "created_on": "2018-07-30T17:30:01.452Z", "modified_on": "2018-07-30T17:30:01.452Z"}}, {"model": "backend.tag", "pk": 1, "fields": {"name": "Food", "created_on": "2018-07-30T17:20:33.088Z", "modified_on": "2018-07-30T17:20:33.088Z"}}, {"model": "backend.tag", "pk": 2, "fields": {"name": "groceries", "created_on": "2018-07-30T17:21:08.631Z", "modified_on": "2018-07-30T17:21:08.631Z"}}]
+[
+    {
+        "model": "backend.category",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "name": "Salary",
+            "type": "INCOME",
+            "color": "#444444",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "name": "Gift",
+            "type": "INCOME",
+            "color": "#000000",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "name": "Mobile Utility",
+            "type": "EXPENSE",
+            "color": "#121212",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "name": "Groceries",
+            "type": "EXPENSE",
+            "color": "#123123",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 5,
+        "fields": {
+            "user": 1,
+            "name": "Travel",
+            "type": "EXPENSE",
+            "color": "#ACACAC",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 6,
+        "fields": {
+            "user": 1,
+            "name": "House Rent",
+            "type": "EXPENSE",
+            "color": "#DDDDDD",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    },
+    {
+        "model": "backend.category",
+        "pk": 7,
+        "fields": {
+            "user": 1,
+            "name": "EB Utility",
+            "type": "EXPENSE",
+            "color": "#CCCCCC",
+            "created_on": "2018-07-30T16:57:05.823Z",
+            "updated_on": "2018-07-30T16:57:05.823Z"
+        }
+    }
+]

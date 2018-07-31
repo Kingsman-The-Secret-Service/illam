@@ -1,0 +1,28 @@
+[{
+    "model": "backend.tag",
+    "pk": 1,
+    "fields": {
+        "user":1,
+        "name": "Gold Loan",
+        "created_on": "2018-07-27T08:26:31.107Z",
+        "updated_on": "2018-07-27T08:26:31.107Z"
+    }
+}, {
+    "model": "backend.tag",
+    "pk": 2,
+    "fields": {
+        "user":1,
+        "name": "Mutual Fund",
+        "created_on": "2018-07-27T08:26:39.548Z",
+        "updated_on": "2018-07-27T08:26:39.548Z"
+    }
+}, {
+    "model": "backend.tag",
+    "pk": 3,
+    "fields": {
+        "user":1,
+        "name": "Chit",
+        "created_on": "2018-07-27T08:26:45.360Z",
+        "updated_on": "2018-07-27T08:26:45.360Z"
+    }
+}]
