@@ -32,7 +32,7 @@ $(document).ready(function() {
     $('#categoryListTable').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "{% url 'categoriesList' %}",
+        "ajax": "{% url 'CategoryList' %}",
         "columns": [
            { "data" : "name" },
             {

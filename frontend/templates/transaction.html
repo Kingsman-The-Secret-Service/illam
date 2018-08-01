@@ -1,12 +1,12 @@
 {% extends "layout/base.html" %}
 
-{% block title %} Source {% endblock %}
+{% block title %} Transaction {% endblock %}
 
 {% block content %}
 <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-11">
-            <h4 class="mdc-typography">Source</h4>
+            <h4 class="mdc-typography">Transaction</h4>
         </div>
         <div class="mdc-layout-grid__cell--span-1">
             <a href="{% url 'login' %}" class="mdc-fab mdc-fab--mini">
@@ -16,10 +16,16 @@
     </div>
 </div>
 
-<table id="sourceListTable" class="mdl-data-table" style="width:100%">
+<table id="trasnactionListTable" class="mdl-data-table" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Member</th>
+                <th>Tag</th>
+                <th>Amount</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -29,12 +35,18 @@
 {% block script %}
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#sourceListTable').DataTable( {
+    $('#trasnactionListTable').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "{% url 'sourceList' %}",
+        "ajax": "{% url 'TransactionList' %}",
         "columns": [
-           { "data" : "name" },
+            { "data" : "date" },
+            { "data" : "type" },
+            { "data" : "category.name" },
+            { "data" : "member.name" },
+            { "data" : "tag.name","defaultContent":'' },
+            { "data" : "amount" },
+            { "data" : "description" },
            {
                 "targets": -1,
                 "data": null,

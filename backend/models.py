@@ -22,6 +22,7 @@ class Category(models.Model):
 
     class Meta:
         unique_together = ("user", "type", "name")
+        ordering = ['name']
 
 class Member(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -5,7 +5,7 @@ from backend.models import Tag
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ('id', 'user', 'name', 'created_on', 'modified_on')
+        fields = ('id', 'user', 'name', 'created_on', 'updated_on')
 
 class TagList(generics.ListCreateAPIView):
     queryset = Tag.objects.all()

@@ -5,7 +5,7 @@ from backend.models import Member
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ('id', 'user', 'name', 'created_on', 'modified_on')
+        fields = ('id', 'user', 'name', 'created_on', 'updated_on')
 
 class MemberList(generics.ListCreateAPIView):
     queryset = Member.objects.all()

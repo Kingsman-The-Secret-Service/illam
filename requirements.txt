@@ -1,5 +1,4 @@
 Django==2.0
-djangorestframework-recursive
 djangorestframework==3.8.2
 djangorestframework-jsonapi==2.5.0
 djangorestframework-datatables

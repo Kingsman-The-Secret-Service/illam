@@ -19,7 +19,10 @@
 <table id="budgetListTable" class="mdl-data-table" style="width:100%">
         <thead>
             <tr>
-                <th>Amount</th>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -32,10 +35,13 @@ $(document).ready(function() {
     $('#budgetListTable').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "{% url 'budgetList' %}",
+        "ajax": "{% url 'BudgetList' %}",
         "columns": [
-           { "data" : "amount" },
-           {
+            { "data" : "name" },
+            { "data" : "start_date" },
+            { "data" : "end_date" },
+            { "data" : "description" },
+            {
                 "targets": -1,
                 "data": null,
                 "searchable":false,

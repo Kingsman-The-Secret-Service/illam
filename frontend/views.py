@@ -10,24 +10,20 @@ def budget(request):
     return render(request, 'budget.html')
 
 @login_required
-def income(request):
-    return render(request, 'income.html')
+def splitup(request):
+    return render(request, 'splitup.html')
 
 @login_required
-def expense(request):
-    return render(request, 'expense.html')
-
-@login_required
-def member(request):
-    return render(request, 'member.html')
-
-@login_required
-def source(request):
-    return render(request, 'source.html')
+def transaction(request):
+    return render(request, 'transaction.html')
 
 @login_required
 def category(request):
     return render(request, 'category.html')
+
+@login_required
+def member(request):
+    return render(request, 'member.html')
 
 @login_required
 def tag(request):

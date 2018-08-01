@@ -5,7 +5,8 @@ from backend.models import Splitup
 class SplitupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Splitup
-        fields = ('id', 'user', 'type', 'category', 'member', 'tag', 'budget', 'amount', 'description', 'created_on' , 'updated_on')
+        fields = ('id', 'user', 'budget', 'type', 'category', 'member', 'tag', 'amount', 'description', 'created_on' , 'updated_on')
+        depth = 1
 
 class SplitupList(generics.ListCreateAPIView):
     queryset = Splitup.objects.all()

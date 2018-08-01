@@ -9,7 +9,7 @@ urlpatterns = [
     path('category/<int:pk>/', category.CategoryDetail.as_view(), name="CategoryDetail"),
     
     # Member API
-    path('members', member.MemberList.as_view(), name="MemberList"),
+    path('member', member.MemberList.as_view(), name="MemberList"),
     path('member/<int:pk>/', member.MemberDetail.as_view(), name="MemberDetail"),
 
     # Tag API

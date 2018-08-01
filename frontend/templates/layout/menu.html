@@ -8,13 +8,14 @@
         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">ballot</i>
         Budget
     </a>
-    <a href="{% url 'income' %}" class="mdc-list-item" tabindex="0">
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">money</i>
-        Income
+    <a href="{% url 'splitup' %}" class="mdc-list-item" tabindex="0">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">shuffle</i>
+        Split Up
     </a>
-    <a href="{% url 'expense' %}" class="mdc-list-item" tabindex="0">
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">store</i>
-        Expense
+    <li class="mdc-list-divider" role="separator"></li>
+    <a href="{% url 'transaction' %}" class="mdc-list-item" tabindex="0">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">compare_arrows</i>
+        Transaction
     </a>
     <li class="mdc-list-divider" role="separator"></li>
     <a href="{% url 'category' %}" class="mdc-list-item" tabindex="0">
@@ -24,10 +25,6 @@
     <a href="{% url 'member' %}" class="mdc-list-item" tabindex="0">
         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">group</i>
         Member
-    </a>
-    <a href="{% url 'source' %}" class="mdc-list-item" tabindex="0">
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">thumb_up_alt</i>
-        Source
     </a>
     <a href="{% url 'tag' %}" class="mdc-list-item" tabindex="0">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings_ethernet</i>

@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "model": "backend.splitup",
+        "pk": 1,
+        "fields": {
+            "user":1,
+            "type": "INCOME",
+            "category" : 1,
+            "member" : 1,
+            "tag": null,
+            "budget": 1,
+            "amount": 20000,
+            "description": "Hard earned money",
+            "created_on": "2018-07-27T07:37:42.158Z",
+            "updated_on": "2018-07-27T07:37:42.158Z"
+        }
+    }
+]
