@@ -1,6 +1,7 @@
 from rest_framework import serializers, generics
 
 from backend.models import Splitup
+from backend.filters import IsOwnerFilterBackend
 
 class SplitupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,7 +12,9 @@ class SplitupSerializer(serializers.ModelSerializer):
 class SplitupList(generics.ListCreateAPIView):
     queryset = Splitup.objects.all()
     serializer_class = SplitupSerializer
+    filter_backends = (IsOwnerFilterBackend,)
 
 class SplitupDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Splitup.objects.all()
     serializer_class = SplitupSerializer
+    filter_backends = (IsOwnerFilterBackend,)

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'KanakuPuthagam.middleware.DurationMiddleware',
 ]
 
 ROOT_URLCONF = 'KanakuPuthagam.urls'
@@ -133,12 +134,10 @@ LOGIN_URL = 'login/'
 
 
 # REST FRAMEWORK
-# REST_FRAMEWORK = {
-#     # 'DEFAULT_PERMISSION_CLASSES': (
-#     #     'rest_framework.permissions.IsAuthenticated',
-#     # )
-# }
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_RENDERER_CLASSES': (
         # 'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
@@ -149,5 +148,6 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework_datatables.pagination.DatatablesPageNumberPagination',
     'PAGE_SIZE': 50,
+    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
 }
 
