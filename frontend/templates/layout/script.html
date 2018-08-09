@@ -5,5 +5,20 @@
 <script defer src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script defer src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
 
-<!-- window.mdc.autoInit(); -->
+<script type="text/javascript">
+window.onload = init;
+function init(){
+  window.mdc.autoInit();  
+
+  // Instantiation
+  var menuEl = document.querySelector('#toolbar');
+  var menu = new mdc.menu.MDCMenu(menuEl);
+  var menuButtonEl = document.querySelector('#menu-button');
+
+  // Toggle menu open
+  menuButtonEl.addEventListener('click', function() {
+    menu.open = !menu.open;
+  });
+}
+</script>
 

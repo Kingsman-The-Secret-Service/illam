@@ -1,6 +1,7 @@
 from rest_framework import serializers, generics
 
 from backend.models import Member
+from backend.filters import IsOwnerFilterBackend
 
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,7 +11,9 @@ class MemberSerializer(serializers.ModelSerializer):
 class MemberList(generics.ListCreateAPIView):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
+    filter_backends = (IsOwnerFilterBackend,)
 
 class MemberDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
+    filter_backends = (IsOwnerFilterBackend,)
