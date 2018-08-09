@@ -25,7 +25,9 @@ SECRET_KEY = 'p^cinyx8wo6&@e0*+5frqj+iy^*x-_c_74a=)8gtr*)ea=zlb*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'pranaya.in'        
+]
 
 # Application definition
 INSTALLED_APPS = [
