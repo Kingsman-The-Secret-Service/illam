@@ -15,6 +15,12 @@ class BudgetList(generics.ListCreateAPIView):
     serializer_class = BudgetSerializer
     filter_backends = (IsOwnerFilterBackend,)
 
+    def get_queryset(self):
+            return Budget.objects.all().filter(
+                start_date__gte = self.request.session['startDate'],
+                end_date__lte = self.request.session['endDate']
+            )
+
 class BudgetDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Budget.objects.all()
     serializer_class = BudgetSerializer

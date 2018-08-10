@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
     # 'corsheaders',
     'rest_framework',
     'KanakuPuthagam',
@@ -56,10 +57,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'KanakuPuthagam.urls'
 
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            BASE_DIR,
             'templates'
         ],
         'APP_DIRS': True,
@@ -131,7 +135,6 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login/'
-
 
 # REST FRAMEWORK
 REST_FRAMEWORK = {

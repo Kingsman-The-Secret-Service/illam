@@ -6,6 +6,8 @@ urlpatterns = [
     
     path('', views.dashboard, name='dashboard'),
     path('budget/', views.budget, name='budget'),
+    path('budget/add', views.budgetForm, name='budgetForm'),
+
     path('splitup/', views.splitup, name='splitup'),
     path('transaction/', views.transaction, name='transaction'),
     path('category/', views.category, name='category'),

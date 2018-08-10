@@ -9,6 +9,16 @@ def dashboard(request):
 def budget(request):
     return render(request, 'budget.html')
 
+def budgetForm(request):
+    from frontend.forms import BudgetForm
+    if request.method == 'POST':
+        form = BudgetForm(request.POST)
+        if form.is_valid():
+            pass  # does nothing, just trigger the validation
+    else:
+        form = BudgetForm()
+    return render(request, 'budget/form.html', {'form': form})
+
 @login_required
 def splitup(request):
     return render(request, 'splitup.html')
