@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<style>
+			.header {
+				text-align: center;
+			}
+			.logo {
+				width: 150px;
+				height: 150px;
+				padding-top: 80px;
+				fill: currentColor;
+			}
+			.username,.password {
+				display: block;
+				width: 300px;
+				margin: 20px auto;
+			}
+			.button-container {
+				display: flex;
+				justify-content: flex-end;
+				width: 300px;
+				margin: auto;
+			}
+			.button-container button {
+				margin: 3px;
+			}
+		</style>
+    </head>
+    <body>
+		<section class="header">
+			<h1>Kanaku Puthagam</h1>
+		</section>
+		<form action="{% url 'login' %}" method="POST">
+			{% csrf_token %}
+			<div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon username" data-mdc-auto-init="MDCTextField">
+				<i class="material-icons mdc-text-field__icon">person</i>
+				<label class="mdc-floating-label" for="username-input">Username</label>
+				<input type="text"  id="username-input" name="username" class="mdc-text-field__input">
+				<div class="mdc-line-ripple"></div>
+			</div>
+			<div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon password" data-mdc-auto-init="MDCTextField">
+				<i class="material-icons mdc-text-field__icon">fingerprint</i>
+				<label class="mdc-floating-label" for="password-input">Password</label>
+				<input type="password" id="password-input" name="password" class="mdc-text-field__input">
+				<div class="mdc-line-ripple"></div>
+			</div>
+			<div class="button-container">
+				<button class="mdc-button mdc-button--raised next" data-mdc-auto-init="MDCRipple">
+					Sign In
+				</button>
+			</div>
+		</form>
+    </body>
+	<script async src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+	<script type="text/javascript">
+		window.onload = init;
+		function init(){
+			window.mdc.autoInit();
+		}
+		</script>
+</html>

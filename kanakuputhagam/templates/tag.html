@@ -1,0 +1,55 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Tag {% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-11">
+            <h4 class="mdc-typography">Tag</h4>
+        </div>
+        <div class="mdc-layout-grid__cell--span-1">
+            <a href="{% url 'login' %}" class="mdc-fab mdc-fab--mini">
+                <i class="mdc-fab__icon material-icons" aria-hidden="true">add</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<table id="tagListTable" class="mdl-data-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#tagListTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "{% url 'TagList' %}",
+        "columns": [
+           { "data" : "name" },
+           {
+                "targets": -1,
+                "data": null,
+                "searchable":false,
+                "orderable":false,
+                "defaultContent": '<button class="mdc-icon-button material-icons">edit</button><button class="mdc-icon-button material-icons">delete</button>'
+            } 
+        ],
+        "columnDefs": [
+            {
+                targets: [ 0 ],
+                "className": 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    });
+} );
+</script>
+{% endblock %}

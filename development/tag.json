@@ -1,5 +1,5 @@
 [{
-    "model": "backend.tag",
+    "model": "kanakuputhagam.tag",
     "pk": 1,
     "fields": {
         "user":1,
@@ -8,7 +8,7 @@
         "updated_on": "2018-07-27T08:26:31.107Z"
     }
 }, {
-    "model": "backend.tag",
+    "model": "kanakuputhagam.tag",
     "pk": 2,
     "fields": {
         "user":1,
@@ -17,7 +17,7 @@
         "updated_on": "2018-07-27T08:26:39.548Z"
     }
 }, {
-    "model": "backend.tag",
+    "model": "kanakuputhagam.tag",
     "pk": 3,
     "fields": {
         "user":1,
