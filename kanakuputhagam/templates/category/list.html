@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Category {% endblock %}
+
+{% block content %}  
+    <table class="table table-sm  table-hover">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>
+                    <a href="{% url 'category-add' %}" class="mdc-button mdc-button--raised	float-right">
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+                        Create  
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in object_list %}
+                <tr>
+                    <td>{{ category.type }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.color }}</td>
+                    <td>
+                        <div class="btn-toolbar float-right" role="toolbar">
+                            <a href="/category/{{ category.id }}/" class="mdc-icon-button"><i class=" material-icons">edit</i></a>
+                            <form method="POST" action="/category/{{ category.id }}/delete/">
+                                {% csrf_token %}
+                                <button type="submit" value="DELETE" class="mdc-icon-button material-icons">delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr> 
+                    <td colspan="8" class="text-center">
+                        No Category Data found
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "layout/paginate.html" %}
+{% endblock %}

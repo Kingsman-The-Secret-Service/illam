@@ -1,6 +1,6 @@
 [
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 1,
         "fields": {
             "user":1,
@@ -10,7 +10,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 2,
         "fields": {
             "user":1,
@@ -20,7 +20,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 3,
         "fields": {
             "user":1,
@@ -30,7 +30,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 4,
         "fields": {
             "user":1,
@@ -40,7 +40,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 5,
         "fields": {
             "user":1,
@@ -50,7 +50,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 6,
         "fields": {
             "user":1,
@@ -60,7 +60,7 @@
         }
     },
     {
-        "model": "backend.member",
+        "model": "kanakuputhagam.member",
         "pk": 7,
         "fields": {
             "user":1,

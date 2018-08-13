@@ -1,6 +1,6 @@
 [
     {
-        "model": "backend.budget",
+        "model": "kanakuputhagam.budget",
         "pk": 1,
         "fields": {
             "user":1,
@@ -13,7 +13,7 @@
         }
     },
     {
-        "model": "backend.budget",
+        "model": "kanakuputhagam.budget",
         "pk": 2,
         "fields": {
             "user":1,

@@ -1,0 +1,10 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Tag {% endblock %}
+
+{% block content %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {% include "layout/form.html" with form=form %}
+</form>
+{% endblock %}

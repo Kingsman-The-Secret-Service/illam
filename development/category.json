@@ -1,6 +1,6 @@
 [
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 1,
         "fields": {
             "user": 1,
@@ -12,7 +12,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 2,
         "fields": {
             "user": 1,
@@ -24,7 +24,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 3,
         "fields": {
             "user": 1,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 4,
         "fields": {
             "user": 1,
@@ -48,7 +48,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 5,
         "fields": {
             "user": 1,
@@ -60,7 +60,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 6,
         "fields": {
             "user": 1,
@@ -72,7 +72,7 @@
         }
     },
     {
-        "model": "backend.category",
+        "model": "kanakuputhagam.category",
         "pk": 7,
         "fields": {
             "user": 1,

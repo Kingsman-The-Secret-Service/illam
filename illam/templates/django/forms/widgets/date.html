@@ -1,0 +1,10 @@
+<div class="mdc-text-field mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+	<input 
+		type="date"
+		name="{{ widget.name }}" 
+		{% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}
+		{% include "django/forms/widgets/attrs.html" %} 
+		placeholder="{{ widget.name|title }}: "
+		aria-label="{{ widget.name|title }}: "
+		class="mdc-text-field__input" />
+</div>

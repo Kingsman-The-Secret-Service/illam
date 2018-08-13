@@ -12,7 +12,7 @@ python3 manage.py runserver
 
 ##################### TO LOAD DATA ####################
 rm db.sqlite3
-python3 manage.py makemigrations backend
+python3 manage.py makemigrations kanakuputhagam
 python3 manage.py showmigrations
 python3 manage.py migrate
 python3 manage.py loaddata development/*.json
