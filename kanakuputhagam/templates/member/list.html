@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Member {% endblock %}
+
+{% block content %}  
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>
+                    <a href="{% url 'member-add' %}" class="mdc-button mdc-button--raised float-right">
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+                        Create  
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in object_list %}
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>
+                        <div class="btn-toolbar float-right" role="toolbar">
+                            <a href="/member/{{ member.id }}/" class="mdc-icon-button"><i class=" material-icons">edit</i></a>
+                            <form method="POST" action="/member/{{ member.id }}/delete/">
+                                {% csrf_token %}
+                                <button type="submit" value="DELETE" class="mdc-icon-button material-icons">delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr> 
+                    <td colspan="8" class="text-center">
+                        No Member Data found
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "layout/paginate.html" %}
+{% endblock %}

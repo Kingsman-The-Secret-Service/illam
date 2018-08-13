@@ -8,17 +8,25 @@
 <script type="text/javascript">
 window.onload = init;
 function init(){
-  window.mdc.autoInit();  
+	window.mdc.autoInit();
 
-  // Instantiation
-  var menuEl = document.querySelector('#toolbar');
-  var menu = new mdc.menu.MDCMenu(menuEl);
-  var menuButtonEl = document.querySelector('#menu-button');
+	{% if messages %}
+		var message = "";
+		{% for message in messages %}
+		 	message += '{{ message }}';
+		{% endfor %}
 
-  // Toggle menu open
-  menuButtonEl.addEventListener('click', function() {
-    menu.open = !menu.open;
-  });
+		var notify = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
+		 const data={
+		   message: message,
+		   actionText: 'Okay',
+		   actionHandler: function() {
+		     console.log(data);
+		   }
+		 };
+		notify.show(data);
+	{% endif %}
+
 }
 </script>
 

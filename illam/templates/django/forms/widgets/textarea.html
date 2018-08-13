@@ -1,0 +1,4 @@
+<div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+    <textarea name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %} class="mdc-text-field__input" rows="8">{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
+    <label class="mdc-floating-label">{{ widget.name|title }}</label>
+</div>

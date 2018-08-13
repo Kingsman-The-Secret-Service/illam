@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.forms',
     'kanakuputhagam',
     # 'backend',
-    'frontend',
+    # 'frontend',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +135,7 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'
 
 # REST FRAMEWORK
 REST_FRAMEWORK = {

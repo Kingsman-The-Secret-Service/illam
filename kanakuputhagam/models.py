@@ -10,8 +10,8 @@ class Category(models.Model):
         (EXPENSE, "EXPENSE")
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    type = models.CharField(max_length=5, choices=TYPE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
+    type = models.CharField(max_length=9, choices=TYPE)
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=255, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add = True)
@@ -25,7 +25,7 @@ class Category(models.Model):
         ordering = ['name']
 
 class Member(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     created_on = models.DateTimeField(auto_now_add = True)
     updated_on = models.DateTimeField(auto_now = True)
@@ -37,7 +37,7 @@ class Member(models.Model):
         unique_together = ("user", "name")
 
 class Tag(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     created_on = models.DateTimeField(auto_now_add = True)
     updated_on = models.DateTimeField(auto_now = True)
@@ -49,7 +49,7 @@ class Tag(models.Model):
         unique_together = ("user", "name")
 
 class Budget(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -71,8 +71,8 @@ class Splitup(models.Model):
         (EXPENSE, "EXPENSE")
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    type = models.CharField(max_length=5, choices=TYPE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
+    type = models.CharField(max_length=9, choices=TYPE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.SET_NULL, null=True, blank=True)
@@ -90,8 +90,8 @@ class Transaction(models.Model):
         (EXPENSE, "EXPENSE")
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    type = models.CharField(max_length=5, choices=TYPE)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
+    type = models.CharField(max_length=9, choices=TYPE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.SET_NULL, null=True, blank=True)
