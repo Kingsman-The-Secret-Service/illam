@@ -3,5 +3,67 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
-DASH BORAD
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+            <div id="incomeChart" style="height: 350px;"></div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+            <div id="savingChart" style="height: 350px;"></div>
+        </div>
+    </div>
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div id="expenseChart" style=" height: 350px;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+       
+        {% autoescape off %}
+        var incomeData = google.visualization.arrayToDataTable({{incomeData}});
+        var savingData = google.visualization.arrayToDataTable({{savingData}});
+        var expenseData = google.visualization.arrayToDataTable({{expenseData}});
+        {% endautoescape %}
+
+        var incomeChart = document.getElementById('incomeChart');
+        var incomeMaterialOptions = {
+            chart: {
+                title: 'INCOME',
+                subtitle: 'distance on the left, brightness on the right'
+            }
+        };
+        var incomeMaterialChart = new google.charts.Bar(incomeChart);
+        incomeMaterialChart.draw(incomeData, google.charts.Bar.convertOptions(incomeMaterialOptions));
+
+        var savingChart = document.getElementById('savingChart');
+        var savingMaterialOptions = {
+            chart: {
+                title: 'SAVING',
+                subtitle: 'distance on the left, brightness on the right'
+            }
+        };
+        var savingMaterialChart = new google.charts.Bar(savingChart);
+        savingMaterialChart.draw(savingData, google.charts.Bar.convertOptions(savingMaterialOptions));
+
+        var expenseChart = document.getElementById('expenseChart');
+        var expenseMaterialOptions = {
+            chart: {
+                title: 'EXPENSE',
+                subtitle: 'distance on the left, brightness on the right'
+            }
+        };
+        var expenseMaterialChart = new google.charts.Bar(expenseChart);
+        expenseMaterialChart.draw(expenseData, google.charts.Bar.convertOptions(expenseMaterialOptions));
+    };
+  </script>
 {% endblock %}

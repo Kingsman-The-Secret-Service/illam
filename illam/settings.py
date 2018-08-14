@@ -26,7 +26,8 @@ SECRET_KEY = 'p^cinyx8wo6&@e0*+5frqj+iy^*x-_c_74a=)8gtr*)ea=zlb*'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'pranaya.in'        
+    'pranaya.in',
+    '127.0.0.1'       
 ]
 
 # Application definition
