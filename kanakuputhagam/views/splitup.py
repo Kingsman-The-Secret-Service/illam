@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from kanakuputhagam.models import Splitup, Category
+from kanakuputhagam.models import Splitup, Budget, Category, Member, Tag
 
 class SplitupList(LoginRequiredMixin, ListView):
     model = Splitup
@@ -18,10 +18,25 @@ class SplitupList(LoginRequiredMixin, ListView):
 
 class SplitupCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Splitup
-    fields = ['budget', 'category', 'member', 'tag', 'amount', 'description']
+    fields = ['budget', 'category', 'member', 'amount', 'tag', 'description']
     template_name = 'splitup/form.html'
     success_url = reverse_lazy('splitup-add')
     success_message = "Sliptup %(category)s was created successfully"
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+
+        if 'type' in self.kwargs.keys() and self.kwargs['type'] in ['INCOME', 'SAVING', 'EXPENSE']:
+            form.fields['category'].queryset = Category.objects.filter(
+                user=self.request.user, 
+                type=self.kwargs['type'])
+        else:
+            form.fields['category'].queryset = Category.objects.filter(user=self.request.user)
+
+        form.fields['budget'].queryset = Budget.objects.filter(user=self.request.user)
+        form.fields['member'].queryset = Member.objects.filter(user=self.request.user)
+        form.fields['tag'].queryset = Tag.objects.filter(user=self.request.user)
+        return form
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -30,7 +45,7 @@ class SplitupCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class SplitupUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Splitup
-    fields = ['budget', 'category', 'member', 'tag', 'amount', 'description']
+    fields = ['budget', 'category', 'member', 'amount', 'tag', 'description']
     template_name = 'splitup/form.html'
     success_url = reverse_lazy('splitup-list')
     success_message = "Sliptup with category %(category)s was updated successfully"
@@ -38,6 +53,14 @@ class SplitupUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_queryset(self):
         return super().get_queryset().filter(
                 user=self.request.user)
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+        form.fields['budget'].queryset = Budget.objects.filter(user=self.request.user)
+        form.fields['category'].queryset = Category.objects.filter(user=self.request.user)
+        form.fields['member'].queryset = Member.objects.filter(user=self.request.user)
+        form.fields['tag'].queryset = Tag.objects.filter(user=self.request.user)
+        return form
 
     def form_valid(self, form):
         form.instance.type = Category.objects.filter(id=form.data['category']).first().type

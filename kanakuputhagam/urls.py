@@ -16,12 +16,14 @@ urlpatterns = [
     # SplitUp
     path('splitup/', splitup.SplitupList.as_view(), name='splitup-list'),
     path('splitup/add/', splitup.SplitupCreate.as_view(), name='splitup-add'),
+    path('splitup/add/<str:type>', splitup.SplitupCreate.as_view(), name='splitup-add'),
     path('splitup/<int:pk>/', splitup.SplitupUpdate.as_view(), name='splitup-update'),
     path('splitup/<int:pk>/delete/', splitup.SplitupDelete.as_view(), name='splitup-delete'),
 
     # Transaction
     path('transaction/', transaction.TransactionList.as_view(), name='transaction-list'),
     path('transaction/add/', transaction.TransactionCreate.as_view(), name='transaction-add'),
+    path('transaction/add/<str:type>', transaction.TransactionCreate.as_view(), name='transaction-add'),
     path('transaction/<int:pk>/', transaction.TransactionUpdate.as_view(), name='transaction-update'),
     path('transaction/<int:pk>/delete/', transaction.TransactionDelete.as_view(), name='transaction-delete'),
 

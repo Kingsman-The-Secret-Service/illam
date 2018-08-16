@@ -20,7 +20,7 @@ class Category(models.Model):
     updated_on = models.DateTimeField(auto_now = True)
 
     def __str__(self):
-        return self.type + ': ' + self.name
+        return self.name + ' (' + self.type + ')'
 
     class Meta:
         unique_together = ("user", "type", "name")
