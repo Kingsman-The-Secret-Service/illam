@@ -4,29 +4,8 @@
             <a href="#" class="menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
             <span class="mdc-top-app-bar__title">Kanaku Puthagam</span>
         </section>
-        <!-- <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-center" role="toolbar">
-            <i class="material-icons">event</i> 
-            <span class="mdc-typography--button">{{ request.session.startDate }}</span> 
-            <span class="mdc-typography--button">{{ request.session.endDate }}</span>
-        </section> -->
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <span class="mdc-typography--button">{{ request.user.username }}</span>
             <a href="{% url 'logout' %}" class="material-icons mdc-top-app-bar__action-item" aria-label="Logout" alt="Logout">power_settings_new</a>
-
-
-            <div  class="toolbar mdc-menu-anchor">
-                <a id="menu-button" class="material-icons mdc-top-app-bar__action-item" >more_vert</a>
-                <div id="toolbar" class="mdc-menu" tabindex="-1">
-                    <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
-                        <li class="mdc-list-item" role="menuitem" tabindex="0">
-                        A Menu Item
-                        </li>
-                        <li class="mdc-list-item" role="menuitem" tabindex="0">
-                        Another Menu Item
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </section>
     </div>
 </header>

@@ -2,7 +2,15 @@
 
 {% block title %} Tag {% endblock %}
 
+{% block toolbar %}
+<a href="{% url 'tag-list' %}" class="mdc-button mdc-button--raised float-right">
+    <i class="material-icons mdc-button__icon" aria-hidden="true">list</i>
+    Tag List
+</a>
+{% endblock %}
+
 {% block content %}
+<hr/>
 <form method="post" novalidate>
     {% csrf_token %}
     {% include "layout/form.html" with form=form %}

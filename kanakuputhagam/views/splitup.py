@@ -20,7 +20,7 @@ class SplitupCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Splitup
     fields = ['budget', 'category', 'member', 'amount', 'tag', 'description']
     template_name = 'splitup/form.html'
-    success_url = reverse_lazy('splitup-add')
+    success_url = reverse_lazy('splitup-list')
     success_message = "Sliptup %(category)s was created successfully"
 
     def get_form(self, *args, **kwargs):

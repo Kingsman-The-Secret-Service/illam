@@ -2,20 +2,23 @@
 
 {% block title %} Budget {% endblock %}
 
+{% block toolbar %}
+<a href="{% url 'budget-add' %}" class="mdc-button mdc-button--raised float-right">
+    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+    Create  
+</a>
+{% endblock %}
+
 {% block content %}  
-    <table class="table table-sm table-bordered table-hover">
+
+    <table class="table table-sm table-bordered table-hover table-responsive-sm">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Description</th>
-                <th>
-                    <a href="{% url 'budget-add' %}" class="mdc-button mdc-button--raised float-right">
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
-                        Create  
-                    </a>
-                </th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>

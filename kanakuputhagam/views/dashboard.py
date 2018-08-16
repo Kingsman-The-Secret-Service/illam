@@ -6,7 +6,9 @@ from kanakuputhagam.models import Category, Budget, Splitup, Transaction
 def dashboard(request):
 
     data = {}
-    budget = Budget.objects.filter(user = request.user).first()
+    budgets = Budget.objects.filter(user = request.user)
+    data['budgets'] = budgets
+    budget = budgets.first()
     categories = Category.objects.filter(user = request.user)
 
     if budget and categories:

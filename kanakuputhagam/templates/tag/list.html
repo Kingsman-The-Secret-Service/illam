@@ -2,17 +2,19 @@
 
 {% block title %} Tag {% endblock %}
 
+{% block toolbar %}
+<a href="{% url 'tag-add' %}" class="mdc-button mdc-button--raised float-right">
+    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+    Create  
+</a>
+{% endblock %}
+
 {% block content %}  
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover table-responsive-sm">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>
-                    <a href="{% url 'tag-add' %}" class="mdc-button mdc-button--raised float-right">
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
-                        Create  
-                    </a>
-                </th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +22,7 @@
                 <tr>
                     <td>{{ tag.name }}</td>
                     <td>
-                        <div class="btn-toolbar float-right" role="toolbar">
+                        <div class="btn-toolbar" role="toolbar">
                             <a href="/tag/{{ tag.id }}/" class="mdc-icon-button"><i class=" material-icons">edit</i></a>
                             <form method="POST" action="/tag/{{ tag.id }}/delete/">
                                 {% csrf_token %}

@@ -2,7 +2,7 @@
 
 {% block title %} Transaction {% endblock %}
 
-{% block content %}
+{% block toolbar %}
     <div class="mdc-layout-grid__inner text-center">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
             <a href="{% url 'transaction-add' type='INCOME' %}" class="mdc-button mdc-button--raised mr-5">
@@ -20,8 +20,10 @@
             </a>
         </div>
     </div>
-    <br/>
-    <table class="table table-sm table-bordered table-hover">
+{% endblock %}
+
+{% block content %}
+    <table class="table table-sm table-bordered table-hover table-responsive-sm">
         <thead>
             <tr>
                 <th>Type</th>

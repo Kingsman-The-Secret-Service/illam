@@ -2,7 +2,15 @@
 
 {% block title %} Category {% endblock %}
 
+{% block toolbar %}
+<a href="{% url 'category-list' %}" class="mdc-button mdc-button--raised float-right">
+    <i class="material-icons mdc-button__icon" aria-hidden="true">list</i>
+    Category List
+</a>
+{% endblock %}
+
 {% block content %}
+<hr/>
 <form method="post" novalidate>
     {% csrf_token %}
     {% include "layout/form.html" with form=form %}

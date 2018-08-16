@@ -20,7 +20,7 @@ class TransactionCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Transaction
     fields = ['date', 'category', 'member', 'amount', 'tag', 'description']
     template_name = 'transaction/form.html'
-    success_url = reverse_lazy('transaction-add')
+    success_url = reverse_lazy('transaction-list')
     success_message = "Transaction %(category)s was created successfully"
 
     def get_form(self, *args, **kwargs):

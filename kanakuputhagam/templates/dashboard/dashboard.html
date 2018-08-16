@@ -2,18 +2,31 @@
 
 {% block title %} Dashboard {% endblock %}
 
+{% block toolbar %}
+<div class="mdc-select mdc-select--fullwidth float-right" data-mdc-auto-init="MDCSelect">
+    <select name="budget" class="mdc-select__native-control" disabled>
+        {% for budget in budgets %}     
+            <option value="{{ budget.id }}">{{ budget.name }}</option>
+        {% endfor %} 
+    </select>
+    <label class="mdc-floating-label mdc-floating-label--float-above">{{ widget.name|title }}</label>
+    <div class="mdc-line-ripple"></div>
+</div>
+{% endblock %}
+
 {% block content %}
+<hr/>
 <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
             <div id="incomeChart" style="height: 350px;"></div>
         </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
             <div id="savingChart" style="height: 350px;"></div>
         </div>
-    </div>
-    <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <!-- </div>
+    <div class="mdc-layout-grid__inner"> -->
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
             <div id="expenseChart" style=" height: 350px;"></div>
         </div>
     </div>
@@ -24,7 +37,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart', 'bar']});
+    google.charts.load('current', {'packages':['corechart', 'bar'], 'language': 'hi_IN'});
     google.charts.setOnLoadCallback(drawStuff);
 
     function drawStuff() {
@@ -38,7 +51,17 @@
         var incomeChart = document.getElementById('incomeChart');
         var incomeMaterialOptions = {
             chart: {
-                title: 'INCOME'
+                title: 'INCOME',
+            },
+            legend: { position: 'none' },
+            hAxis:{
+                showTextEvery: 1,
+            },
+            vAxis:{
+                format: 'currency'
+            },
+            animation: {
+                startup:true
             }
         };
         var incomeMaterialChart = new google.charts.Bar(incomeChart);
@@ -47,8 +70,16 @@
         var savingChart = document.getElementById('savingChart');
         var savingMaterialOptions = {
             chart: {
-                title: 'SAVING'
+                title: 'SAVING',
+            },
+            legend: { position: 'none' },
+            hAxis:{
+                showTextEvery: 1,
+            },
+            vAxis:{
+                format: 'currency'
             }
+
         };
         var savingMaterialChart = new google.charts.Bar(savingChart);
         savingMaterialChart.draw(savingData, google.charts.Bar.convertOptions(savingMaterialOptions));
@@ -56,7 +87,14 @@
         var expenseChart = document.getElementById('expenseChart');
         var expenseMaterialOptions = {
             chart: {
-                title: 'EXPENSE'
+                title: 'EXPENSE',
+            },
+            legend: { position: 'none' },
+            hAxis:{
+                showTextEvery: 1,
+            },
+            vAxis:{
+                format: 'currency'
             }
         };
         var expenseMaterialChart = new google.charts.Bar(expenseChart);
