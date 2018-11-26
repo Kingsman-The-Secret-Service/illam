@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-6">
+            {% for field in form %}
+                <div class="py-2">
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg" id="pw-validation-msg">
+                            {{ error }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple">Save</button>
+        </div>
+    </div>
+</div>

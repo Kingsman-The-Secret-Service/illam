@@ -43,4 +43,4 @@ def dashboard(request):
             data['savingData'] = savingData
             data['expenseData'] = expenseData
         
-    return render(request, 'dashboard/dashboard.html', data)
+    return render(request, 'kp/dashboard.html', data)

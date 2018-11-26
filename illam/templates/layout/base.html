@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Kanaku Puthagam</title>
+        <title>Illam</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -30,22 +30,7 @@
         {% include 'layout/message.html' %}
 
         <div class="mdc-layout-grid" style="margin-top:30px;">
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                    {% include 'layout/menu.html' %}
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
-                    <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle mdc-layout-grid__cell--span-6">
-                            <h4 class="text-uppercase my-3">{% block title %}{% endblock %}</h4>
-                        </div>
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle mdc-layout-grid__cell--span-6">
-                            {% block toolbar %}{% endblock %}
-                        </div>
-                    </div>
-                    {% block content %}{% endblock %} 
-                </div>
-            </div>
+            {% block content %}{% endblock %} 
         </div>
           
     </body>
